@@ -1,4 +1,4 @@
-﻿namespace sterowanie_glosem.Wrapper
+﻿namespace sterowanie_glosem.Wrapper.Interfaces
 {
   public interface IwinmmWrapper
   {

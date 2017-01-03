@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Bartosz\Desktop\Sterownie glosem\sterowanie_glosem\sterowanie_glosem\Combined1.g4 by ANTLR 4.5.3
+// Generated from C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\Combined1.g4 by ANTLR 4.5.3
 
 // Unreachable code detected
 #pragma warning disable 0162

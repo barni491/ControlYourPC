@@ -30,21 +30,20 @@ namespace sterowanie_glosem.WindsorInstallers
           .ImplementedBy<VoiceRecordService>()
           .LifestyleSingleton());
 
-       container.Register(
-         Component.For<ISpeechRecognationService>()
-           .ImplementedBy<SpeechRecognationService>()
-           .LifestyleSingleton());
+      container.Register(
+        Component.For<ISpeechRecognationService>()
+          .ImplementedBy<SpeechRecognationService>()
+          .LifestyleSingleton());
 
-       container.Register(
-         Component.For<Visitor>()
-         .ImplementedBy<Visitor>()
-         .LifestyleSingleton());
+      container.Register(
+        Component.For<IVisitor>()
+          .ImplementedBy<Visitor>()
+          .LifestyleSingleton());
 
-       container.Register(
-          Component.For<IGrammarService>()
+      container.Register(
+        Component.For<IGrammarService>()
           .ImplementedBy<GrammarService>()
           .LifestyleSingleton());
-        
-        }
     }
+  }
 }

@@ -1,6 +1,6 @@
-C:\Users\Bartosz\Desktop\Sterownie glosem\sterowanie_glosem\sterowanie_glosem\obj\Debug\Combined1Lexer.cs
-C:\Users\Bartosz\Desktop\Sterownie glosem\sterowanie_glosem\sterowanie_glosem\obj\Debug\Combined1Parser.cs
-C:\Users\Bartosz\Desktop\Sterownie glosem\sterowanie_glosem\sterowanie_glosem\obj\Debug\Combined1Listener.cs
-C:\Users\Bartosz\Desktop\Sterownie glosem\sterowanie_glosem\sterowanie_glosem\obj\Debug\Combined1BaseListener.cs
-C:\Users\Bartosz\Desktop\Sterownie glosem\sterowanie_glosem\sterowanie_glosem\obj\Debug\Combined1Visitor.cs
-C:\Users\Bartosz\Desktop\Sterownie glosem\sterowanie_glosem\sterowanie_glosem\obj\Debug\Combined1BaseVisitor.cs
+C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\Combined1Lexer.cs
+C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\Combined1Parser.cs
+C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\Combined1Listener.cs
+C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\Combined1BaseListener.cs
+C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\Combined1Visitor.cs
+C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\Combined1BaseVisitor.cs

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using sterowanie_glosem.Wrapper.Interfaces;
 
 namespace sterowanie_glosem.Wrapper
 {

@@ -2,64 +2,63 @@
 using Google.Apis.CloudSpeechAPI.v1beta1;
 using Google.Apis.Services;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
+using Google.Apis.CloudSpeechAPI.v1beta1.Data;
 using sterowanie_glosem.Services.Interfaces;
 
 namespace sterowanie_glosem.Services
 {
-    class SpeechRecognationService:ISpeechRecognationService
+  class SpeechRecognationService : ISpeechRecognationService
+  {
+    private const string AudioFilePath = "przycisz_SOX.flac";
+
+    public string RecognizeCommand()
     {
-        const String AUDIO_FILE_PATH = "przycisz_SOX.flac";
+      CloudSpeechAPIService cloudSpeechApiService = CreateAuthorizedClient();
+      Console.WriteLine("Signed in Google Speech Api");
 
-        private CloudSpeechAPIService CreateAuthorizedClient(){
-            GoogleCredential credential =
-                GoogleCredential.GetApplicationDefaultAsync().Result;
-            if (credential.IsCreateScopedRequired)
-            {
-                credential = credential.CreateScoped(new[]
-                {
-                    CloudSpeechAPIService.Scope.CloudPlatform
-                });
-            }
-            return new CloudSpeechAPIService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = "DotNet Google Cloud Platform Speech Sample",
-            });
+      string command = null;
+
+      var request = new SyncRecognizeRequest
+      {
+        Config = new RecognitionConfig
+        {
+          Encoding = "FLAC",
+          SampleRate = 16000,
+          LanguageCode = "pl-PL"
+        },
+        Audio = new RecognitionAudio
+        {
+          Content = Convert.ToBase64String(File.ReadAllBytes(AudioFilePath))
         }
+      };
 
-        public String RecognizeCommand() {
-            var service = CreateAuthorizedClient();
-            Console.WriteLine("Signed in Google Speech Api");
-            
-            String command = null;
+      SyncRecognizeResponse response = cloudSpeechApiService.Speech.Syncrecognize(request).Execute();
 
-            var request = new Google.Apis.CloudSpeechAPI.v1beta1.Data.SyncRecognizeRequest()
-            {
-                Config = new Google.Apis.CloudSpeechAPI.v1beta1.Data.RecognitionConfig()
-                {
-
-                    Encoding = "FLAC",
-                    SampleRate = 16000,
-                    LanguageCode = "pl-PL"
-                },
-                Audio = new Google.Apis.CloudSpeechAPI.v1beta1.Data.RecognitionAudio()
-                {
-                    
-                    Content = Convert.ToBase64String(File.ReadAllBytes(AUDIO_FILE_PATH))
-                }
-            };
-            var response = service.Speech.Syncrecognize(request).Execute();
-            foreach (var result in response.Results)
-            {
-                foreach (var alternative in result.Alternatives)
-                     command = alternative.Transcript;
-            }
-            return command;
+      foreach (SpeechRecognitionResult result in response.Results)
+      {
+        foreach (SpeechRecognitionAlternative alternative in result.Alternatives)
+        {
+          command = alternative.Transcript;
         }
+      }
 
+      return command;
     }
+
+    private static CloudSpeechAPIService CreateAuthorizedClient()
+    {
+      GoogleCredential credential = GoogleCredential.GetApplicationDefaultAsync().Result;
+      if (credential.IsCreateScopedRequired)
+      {
+        credential = credential.CreateScoped(CloudSpeechAPIService.Scope.CloudPlatform);
+      }
+
+      return new CloudSpeechAPIService(new BaseClientService.Initializer()
+      {
+        HttpClientInitializer = credential,
+        ApplicationName = "DotNet Google Cloud Platform Speech Sample",
+      });
+    }
+  }
 }

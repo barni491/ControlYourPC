@@ -1,59 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using sterowanie_glosem.Services.Interfaces;
-using NAudio;
 using NAudio.Wave;
 using System.Diagnostics;
 
 namespace sterowanie_glosem.Services
 {
-    class VoiceRecordService : IVoiceRecordService
+  class VoiceRecordService : IVoiceRecordService
+  {
+    private readonly WaveInEvent _waveInEvent;
+    private readonly WaveFileWriter _waveFileWriter;
+
+    public VoiceRecordService()
     {
-        private static WaveFileWriter waveFile;
+      _waveInEvent = new WaveInEvent
+      {
+        WaveFormat = new WaveFormat(16000, 2)
+      };
 
-        public void RecordCommand()
-        {
+      _waveInEvent.DataAvailable += WaveSourceDataAvailable;
 
-            var waveSource = new WaveInEvent();
-            waveSource.WaveFormat = new WaveFormat(16000, 2);
-            waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(WaveSourceDataAvailable);
-            waveSource.StartRecording();
-
-            waveFile = new WaveFileWriter("przycisz_SOX.wav", waveSource.WaveFormat);
-            System.Threading.Thread.Sleep(5000);
-            waveSource.StopRecording();
-            waveFile.Close();
-            SoxConvertToFlac();
-            
-        }
-
-
-        private void SoxConvertToFlac()
-        {
-            var startInfo = new ProcessStartInfo();
-            startInfo.FileName = "C:\\Program Files (x86)\\sox-14-4-2\\sox.exe";
-            startInfo.Arguments = "przycisz_SOX.wav -c 1 przycisz_SOX.flac";
-            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.UseShellExecute = false;
-            startInfo.CreateNoWindow = false;
-            startInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            using (Process soxProc = Process.Start(startInfo))
-            {
-                soxProc.WaitForExit();
-            }
-        }
-
-
-        static void WaveSourceDataAvailable(object sender, WaveInEventArgs e)
-        {
-            if (waveFile != null)
-            {
-                waveFile.Write(e.Buffer, 0, e.BytesRecorded);
-                waveFile.Flush();
-            }
-
-        }
+      _waveFileWriter = new WaveFileWriter("przycisz_SOX.wav", _waveInEvent.WaveFormat);
     }
+
+    public void RecordCommand()
+    {
+      _waveInEvent.StartRecording();
+
+      System.Threading.Thread.Sleep(5000);
+
+      _waveInEvent.StopRecording();
+
+      _waveFileWriter.Close();
+
+      SoxConvertToFlac();
+    }
+    
+    private static void SoxConvertToFlac()
+    {
+      var startInfo = new ProcessStartInfo
+      {
+        FileName = "C:\\Program Files (x86)\\sox-14-4-2\\sox.exe",
+        Arguments = "przycisz_SOX.wav -c 1 przycisz_SOX.flac",
+        WindowStyle = ProcessWindowStyle.Hidden,
+        UseShellExecute = false,
+        CreateNoWindow = false,
+        WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory
+      };
+
+      using (Process soxProc = Process.Start(startInfo))
+      {
+        soxProc.WaitForExit();
+      }
+    }
+
+    private void WaveSourceDataAvailable(object sender, WaveInEventArgs e)
+    {
+      if (_waveFileWriter != null)
+      {
+        _waveFileWriter.Write(e.Buffer, 0, e.BytesRecorded);
+        _waveFileWriter.Flush();
+      }
+    }
+  }
 }
