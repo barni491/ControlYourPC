@@ -6,9 +6,9 @@ namespace sterowanie_glosem.Services
 {
   class GrammarService : IGrammarService
   {
-    private readonly Visitor _visitor;
+    private readonly IVisitor _visitor;
 
-    public GrammarService(Visitor visitor)
+    public GrammarService(IVisitor visitor)
     {
       _visitor = visitor;
     }
@@ -23,7 +23,7 @@ namespace sterowanie_glosem.Services
       Combined1Parser.ProgContext tree = parser.prog();
 
       string stringTree = tree.ToStringTree(parser);
-      string value = _visitor.Visit(tree);
+      string value = ((Combined1BaseVisitor<string>)_visitor).Visit(tree);
 
       Console.WriteLine(stringTree);
       Console.WriteLine(value);

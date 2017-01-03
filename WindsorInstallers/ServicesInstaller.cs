@@ -36,6 +36,11 @@ namespace sterowanie_glosem.WindsorInstallers
           .LifestyleSingleton());
 
       container.Register(
+        Component.For<ICombined1Visitor<string>>()
+          .ImplementedBy<Combined1BaseVisitor<string>>()
+          .LifestyleSingleton());
+
+      container.Register(
         Component.For<IVisitor>()
           .ImplementedBy<Visitor>()
           .LifestyleSingleton());
@@ -43,6 +48,11 @@ namespace sterowanie_glosem.WindsorInstallers
       container.Register(
         Component.For<IGrammarService>()
           .ImplementedBy<GrammarService>()
+          .LifestyleSingleton());
+
+      container.Register(
+        Component.For<IMainService>()
+          .ImplementedBy<MainService>()
           .LifestyleSingleton());
     }
   }
