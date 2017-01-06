@@ -1,13 +1,13 @@
-﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.CloudSpeechAPI.v1beta1;
-using Google.Apis.Services;
-using System;
+﻿using System;
 using System.IO;
+using ControlYourPC.Services.Interfaces;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.CloudSpeechAPI.v1beta1;
 using Google.Apis.CloudSpeechAPI.v1beta1.Data;
-using sterowanie_glosem.Services.Interfaces;
+using Google.Apis.Services;
 using System.Collections.Generic;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   class SpeechRecognationService : ISpeechRecognationService
   {

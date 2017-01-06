@@ -1,18 +1,18 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using sterowanie_glosem.Services;
-using sterowanie_glosem.Services.Interfaces;
+using ControlYourPC.Services;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem.WindsorInstallers
+namespace ControlYourPC.WindsorInstallers
 {
   public class ServicesInstaller : IWindsorInstaller
   {
     public void Install(IWindsorContainer container, IConfigurationStore store)
     {
       container.Register(
-        Component.For<IVolumeService>()
-          .ImplementedBy<VolumeService>()
+        Component.For<IVoiceService>()
+          .ImplementedBy<VoiceService>()
           .LifestyleSingleton());
 
       container.Register(
@@ -25,6 +25,11 @@ namespace sterowanie_glosem.WindsorInstallers
           .ImplementedBy<CommonService>()
           .LifestyleSingleton());
 
+      container.Register(
+        Component.For<IExternalProcessManager>()
+          .ImplementedBy<ExternalProcessManager>()
+          .LifestyleSingleton());
+      
       container.Register(
         Component.For<IVoiceRecordService>()
           .ImplementedBy<VoiceRecordService>()
@@ -53,6 +58,11 @@ namespace sterowanie_glosem.WindsorInstallers
       container.Register(
         Component.For<IMainService>()
           .ImplementedBy<MainService>()
+          .LifestyleSingleton());
+
+      container.Register(
+        Component.For<IXmlReader>()
+          .ImplementedBy<XmlReader>()
           .LifestyleSingleton());
     }
   }

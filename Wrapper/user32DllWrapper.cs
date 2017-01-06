@@ -1,37 +1,32 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using sterowanie_glosem.Wrapper.Interfaces;
+using ControlYourPC.Wrapper.Interfaces;
 
-namespace sterowanie_glosem.Wrapper
+namespace ControlYourPC.Wrapper
 {
-  public class user32DllWrapper : Iuser32dllCommonWrapper, Iuser32dllScreenFuncionWrapper, Iuser32dllVolumeFunctionWrapper
+  public class user32DllWrapper : Iuser32dllCommonWrapper, Iuser32dllVolumeFunctionWrapper, Iuser32dllScreenFuncionWrapper
   {
     [DllImport("user32.dll")]
     static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
-    public void VolumeUp()
+    public void PressVolumeUpKey()
     {
       ExecuteWithParam(Keys.VolumeUp);
     }
 
-    public void VolumeDown()
+    public void PressVolumeDownKey()
     {
      ExecuteWithParam(Keys.VolumeDown);
     }
 
-    public void Mute()
+    public void PressMuteKey()
     {
       ExecuteWithParam(Keys.VolumeMute);
     }
 
-    public void TurnOnCapsLock()
+    public void PressCapsLockKey()
     {
       ExecuteWithParam(Keys.CapsLock);
-    }
-
-    public void DoPrintScreen()
-    {
-      ExecuteWithParam(Keys.PrintScreen);
     }
 
     private static void ExecuteWithParam(Keys key)

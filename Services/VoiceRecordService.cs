@@ -1,9 +1,9 @@
 ﻿using System;
-using sterowanie_glosem.Services.Interfaces;
-using NAudio.Wave;
 using System.Diagnostics;
+using ControlYourPC.Services.Interfaces;
+using NAudio.Wave;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   class VoiceRecordService : IVoiceRecordService
   {

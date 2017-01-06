@@ -1,63 +1,70 @@
 ﻿using System;
 using System.Linq;
 using Antlr4.Runtime.Misc;
-using sterowanie_glosem.Services.Interfaces;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   class Visitor : Combined1BaseVisitor<string>, IVisitor
   {
-    private readonly IVolumeService _volumeService;
+    private readonly IVoiceService _voiceService;
 
-    public Visitor(IVolumeService volumeService)
+    public Visitor(IVoiceService voiceService)
     {
-      _volumeService = volumeService;
+      _voiceService = voiceService;
+    }
+    
+    public override string VisitChechVoiceState([NotNull] ControlYourPC.Combined1Parser.ChechVoiceStateContext context)
+    {
+      return nameof(VisitChechVoiceState);
     }
 
+    public override string VisitTurnUpVoice([NotNull] ControlYourPC.Combined1Parser.TurnUpVoiceContext context)
+    {
+      ControlYourPC.Combined1Parser.ValueContext[] values = context.value();
 
-        public override string VisitUp([NotNull] Combined1Parser.UpContext context)
-        {
+      int? value = GetValueFromContext(values);
+
+      if (value.HasValue)
+      {
+        _voiceService.VolumeUp(value.Value);
+
+        Console.Out.WriteLine($"Podgłaszanie o [{value}].");
+      }
             int? value = null;
 
-            Combined1Parser.ValueContext values = context.value();
-            if (values != null)
-            {
-                value = GetValueFromContext(values);
-            }
+      Console.Out.Write(context.ToStringTree());
 
-            Console.Out.WriteLine("Podgłaśnianie o " + value);
-            if (value != null)
-            {
-                _volumeService.VolumeUp(value.GetValueOrDefault());
-            }
-            return base.VisitUp(context);
-        }
-
-
-
-        public override string VisitDown([NotNull] Combined1Parser.DownContext context)
-        {
-            int? value = null;
-
-            Combined1Parser.ValueContext values = context.value();
-            if (values != null) {
-                value = GetValueFromContext(values);
-            }
-       
-            Console.Out.WriteLine("Przyciszanie o " + value);
-            if (value != null) {
-                _volumeService.VolumeDown(value.GetValueOrDefault());
-            }
-
-        return base.VisitDown(context);
+      return base.VisitTurnUpVoice(context);
     }
 
-    private static int GetValueFromContext(Combined1Parser.ValueContext context)
+    public override string VisitTurnDownVoice([NotNull] ControlYourPC.Combined1Parser.TurnDownVoiceContext context)
     {
-        
-            
-        String value =  context.val().GetText();
-        return Convert.ToInt32(value);  
+      ControlYourPC.Combined1Parser.ValueContext[] values = context.value();
+
+      int? value = GetValueFromContext(values);
+      
+      if (value.HasValue)
+      {
+        _voiceService.VolumeDown(value.Value);
+
+        Console.Out.WriteLine($"Przyciszanie o [{value}].");
+      }
+
+      Console.Out.Write(context.ToStringTree());
+
+      return base.VisitTurnDownVoice(context);
+    }
+
+    private static int? GetValueFromContext(ControlYourPC.Combined1Parser.ValueContext[] contexts)
+    {
+      if (contexts.Length > 0)
+      {
+        var value = contexts.First().val().GetText();
+        return Convert.ToInt32(value);
+      }
+
+      return null;
     }
   }
 }

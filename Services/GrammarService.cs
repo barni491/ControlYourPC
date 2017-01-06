@@ -1,8 +1,9 @@
-﻿using Antlr4.Runtime;
-using sterowanie_glosem.Services.Interfaces;
-using System;
+﻿using System;
+using Antlr4.Runtime;
+using ControlYourPC.Domain;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   class GrammarService : IGrammarService
   {
@@ -13,7 +14,7 @@ namespace sterowanie_glosem.Services
       _visitor = visitor;
     }
 
-    public void AnalizeGrammar(string text)
+    public Command AnalizeGrammar(string text)
     {
       var input = new AntlrInputStream(text);
       var lexer = new Combined1Lexer(input);
@@ -22,11 +23,13 @@ namespace sterowanie_glosem.Services
 
       Combined1Parser.ProgContext tree = parser.prog();
 
-      string stringTree = tree.ToStringTree(parser);
+      string stringTree = tree.ToStringTree((Parser) parser);
       string value = ((Combined1BaseVisitor<string>)_visitor).Visit(tree);
 
       Console.WriteLine(stringTree);
       Console.WriteLine(value);
+
+      return new Command();
     }
   }
 }

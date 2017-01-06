@@ -1,7 +1,7 @@
-﻿namespace sterowanie_glosem.Services.Interfaces
+﻿namespace ControlYourPC.Services.Interfaces
 {
   public interface IScreenService
   {
-    void DoPrintScreen();
+    void TakePrintScreen();
   }
 }

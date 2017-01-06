@@ -1,6 +1,0 @@
-C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\obj\Debug\Combined1Lexer.cs
-C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\obj\Debug\Combined1Parser.cs
-C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\obj\Debug\Combined1Listener.cs
-C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\obj\Debug\Combined1BaseListener.cs
-C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\obj\Debug\Combined1Visitor.cs
-C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\obj\Debug\Combined1BaseVisitor.cs

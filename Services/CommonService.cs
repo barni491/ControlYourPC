@@ -1,7 +1,7 @@
-﻿using sterowanie_glosem.Services.Interfaces;
-using sterowanie_glosem.Wrapper.Interfaces;
+﻿using ControlYourPC.Services.Interfaces;
+using ControlYourPC.Wrapper.Interfaces;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   public class CommonService : ICommonService
   {
@@ -14,7 +14,12 @@ namespace sterowanie_glosem.Services
 
     public void TurnOnCapsLock()
     {
-      _commonWrapper.TurnOnCapsLock();
+      _commonWrapper.PressCapsLockKey();
+    }
+
+    public void TurnOffCapsLock()
+    {
+      _commonWrapper.PressCapsLockKey();
     }
   }
 }

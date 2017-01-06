@@ -1,11 +1,11 @@
-﻿namespace sterowanie_glosem.Wrapper.Interfaces
+﻿namespace ControlYourPC.Wrapper.Interfaces
 {
   public interface Iuser32dllVolumeFunctionWrapper
   {
-    void VolumeUp();
+    void PressVolumeUpKey();
 
-    void VolumeDown();
+    void PressVolumeDownKey();
 
-    void Mute();
+    void PressMuteKey();
   }
 }

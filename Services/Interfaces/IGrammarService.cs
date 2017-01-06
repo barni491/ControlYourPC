@@ -1,7 +1,9 @@
-﻿namespace sterowanie_glosem.Services.Interfaces
+﻿using ControlYourPC.Domain;
+
+namespace ControlYourPC.Services.Interfaces
 {
   public interface IGrammarService
   {
-    void AnalizeGrammar(string text);
+    Command AnalizeGrammar(string text);
   }
 }

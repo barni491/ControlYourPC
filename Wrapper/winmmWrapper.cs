@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using sterowanie_glosem.Wrapper.Interfaces;
+using ControlYourPC.Wrapper.Interfaces;
 
-namespace sterowanie_glosem.Wrapper
+namespace ControlYourPC.Wrapper
 {
   public class winmmWrapper : IwinmmWrapper
   {
