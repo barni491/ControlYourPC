@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using Google.Apis.CloudSpeechAPI.v1beta1.Data;
 using sterowanie_glosem.Services.Interfaces;
+using System.Collections.Generic;
 
 namespace sterowanie_glosem.Services
 {
@@ -16,16 +17,23 @@ namespace sterowanie_glosem.Services
     {
       CloudSpeechAPIService cloudSpeechApiService = CreateAuthorizedClient();
       Console.WriteLine("Signed in Google Speech Api");
+            SpeechContext a = new SpeechContext();
+            a.Phrases = new List<String>();
+            a.Phrases.Add("przycisz");
+            
+   
+
 
       string command = null;
 
-      var request = new SyncRecognizeRequest
-      {
-        Config = new RecognitionConfig
-        {
-          Encoding = "FLAC",
-          SampleRate = 16000,
-          LanguageCode = "pl-PL"
+            var request = new SyncRecognizeRequest
+            {
+                Config = new RecognitionConfig
+                {
+                    Encoding = "FLAC",
+                    SampleRate = 16000,
+                    LanguageCode = "pl-PL",
+                    SpeechContext = a
         },
         Audio = new RecognitionAudio
         {

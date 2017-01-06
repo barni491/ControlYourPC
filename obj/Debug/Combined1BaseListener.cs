@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\Combined1.g4 by ANTLR 4.5.3
+// Generated from C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\Combined1.g4 by ANTLR 4.5.3
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -51,19 +51,19 @@ public partial class Combined1BaseListener : ICombined1Listener {
 	public virtual void ExitDown([NotNull] Combined1Parser.DownContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Kom</c>
+	/// Enter a parse tree produced by the <c>Up</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterKom([NotNull] Combined1Parser.KomContext context) { }
+	public virtual void EnterUp([NotNull] Combined1Parser.UpContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>Kom</c>
+	/// Exit a parse tree produced by the <c>Up</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitKom([NotNull] Combined1Parser.KomContext context) { }
+	public virtual void ExitUp([NotNull] Combined1Parser.UpContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>Change</c>

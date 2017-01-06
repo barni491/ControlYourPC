@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\Combined1.g4 by ANTLR 4.5.3
+// Generated from C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\Combined1.g4 by ANTLR 4.5.3
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -41,12 +41,12 @@ public interface ICombined1Visitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitDown([NotNull] Combined1Parser.DownContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Kom</c>
+	/// Visit a parse tree produced by the <c>Up</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitKom([NotNull] Combined1Parser.KomContext context);
+	Result VisitUp([NotNull] Combined1Parser.UpContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>Change</c>

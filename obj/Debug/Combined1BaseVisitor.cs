@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\Combined1.g4 by ANTLR 4.5.3
+// Generated from C:\Users\Bartosz\Desktop\ControlPC\ControlYourPC\Combined1.g4 by ANTLR 4.5.3
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -47,7 +47,7 @@ public partial class Combined1BaseVisitor<Result> : AbstractParseTreeVisitor<Res
 	public virtual Result VisitDown([NotNull] Combined1Parser.DownContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Kom</c>
+	/// Visit a parse tree produced by the <c>Up</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -56,7 +56,7 @@ public partial class Combined1BaseVisitor<Result> : AbstractParseTreeVisitor<Res
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitKom([NotNull] Combined1Parser.KomContext context) { return VisitChildren(context); }
+	public virtual Result VisitUp([NotNull] Combined1Parser.UpContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>Change</c>

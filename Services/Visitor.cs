@@ -13,36 +13,51 @@ namespace sterowanie_glosem.Services
     {
       _volumeService = volumeService;
     }
-    
-    public override string VisitKom([NotNull] Combined1Parser.KomContext context)
-    {
-      return "ok";
+
+
+        public override string VisitUp([NotNull] Combined1Parser.UpContext context)
+        {
+            int? value = null;
+
+            Combined1Parser.ValueContext values = context.value();
+            if (values != null)
+            {
+                value = GetValueFromContext(values);
+            }
+
+            Console.Out.WriteLine("Podgłaśnianie o " + value);
+            if (value != null)
+            {
+                _volumeService.VolumeUp(value.GetValueOrDefault());
+            }
+            return base.VisitUp(context);
+        }
+
+
+
+        public override string VisitDown([NotNull] Combined1Parser.DownContext context)
+        {
+            int? value = null;
+
+            Combined1Parser.ValueContext values = context.value();
+            if (values != null) {
+                value = GetValueFromContext(values);
+            }
+       
+            Console.Out.WriteLine("Przyciszanie o " + value);
+            if (value != null) {
+                _volumeService.VolumeDown(value.GetValueOrDefault());
+            }
+
+        return base.VisitDown(context);
     }
 
-    public override string VisitDown([NotNull] Combined1Parser.DownContext context)
+    private static int GetValueFromContext(Combined1Parser.ValueContext context)
     {
-      Combined1Parser.ValueContext[] values = context.value();
-
-      int? value = GetValueFromContext(values);
-
-      Console.Out.WriteLine("Przyciszanie o " + value);
-
-      _volumeService.VolumeDown(1);
-
-      Console.Out.Write(context.ToStringTree());
-
-      return base.VisitDown(context);
-    }
-
-    private static int? GetValueFromContext(Combined1Parser.ValueContext[] contexts)
-    {
-      if (contexts.Length > 0)
-      {
-        var value = contexts.First().val().GetText();
-        return Convert.ToInt32(value);
-      }
-
-      return null;
+        
+            
+        String value =  context.val().GetText();
+        return Convert.ToInt32(value);  
     }
   }
 }
