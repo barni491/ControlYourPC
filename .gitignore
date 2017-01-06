@@ -21,9 +21,7 @@
 *.orig
 ipch/
 obj/
-[Bb]in
-[Oo]bj
-[Dd]ebug*/
+
 [Rr]elease*/
 PublishProfiles/
 

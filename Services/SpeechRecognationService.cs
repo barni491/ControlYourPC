@@ -17,31 +17,12 @@ namespace ControlYourPC.Services
     {
       CloudSpeechAPIService cloudSpeechApiService = CreateAuthorizedClient();
       Console.WriteLine("Signed in Google Speech Api");
-            SpeechContext a = new SpeechContext();
-            a.Phrases = new List<String>();
-            a.Phrases.Add("przycisz");
-            
-   
-
 
       string command = null;
 
-            var request = new SyncRecognizeRequest
-            {
-                Config = new RecognitionConfig
-                {
-                    Encoding = "FLAC",
-                    SampleRate = 16000,
-                    LanguageCode = "pl-PL",
-                    SpeechContext = a
-        },
-        Audio = new RecognitionAudio
-        {
-          Content = Convert.ToBase64String(File.ReadAllBytes(AudioFilePath))
-        }
-      };
+      SyncRecognizeRequest syncRecognizeRequest = CreateSyncRecognizeRequest();
 
-      SyncRecognizeResponse response = cloudSpeechApiService.Speech.Syncrecognize(request).Execute();
+      SyncRecognizeResponse response = cloudSpeechApiService.Speech.Syncrecognize(syncRecognizeRequest).Execute();
 
       foreach (SpeechRecognitionResult result in response.Results)
       {
@@ -67,6 +48,27 @@ namespace ControlYourPC.Services
         HttpClientInitializer = credential,
         ApplicationName = "DotNet Google Cloud Platform Speech Sample",
       });
+    }
+
+    private static SyncRecognizeRequest CreateSyncRecognizeRequest()
+    {
+      return new SyncRecognizeRequest
+      {
+        Config = new RecognitionConfig
+        {
+          Encoding = "FLAC",
+          SampleRate = 16000,
+          LanguageCode = "pl-PL",
+          SpeechContext = new SpeechContext
+          {
+            Phrases = new List<string> {"przycisz"}
+          }
+        },
+        Audio = new RecognitionAudio
+        {
+          Content = Convert.ToBase64String(File.ReadAllBytes(AudioFilePath))
+        }
+      };
     }
   }
 }
