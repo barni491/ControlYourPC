@@ -3,7 +3,7 @@ grammar Combined1;
 prog: expr+ ;
 
 expr : (COMMAND* voiceUp value*)   #TurnUpVoice
-		| (COMMAND* voiceState value*) #ChechVoiceState
+		| (COMMAND* voiceState value*) #CheckVoiceState
 		| (COMMAND* voiceDown value* ) #TurnDownVoice;
 
 value :('o')? val percent?;

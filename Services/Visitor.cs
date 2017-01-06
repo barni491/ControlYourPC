@@ -14,9 +14,9 @@ namespace ControlYourPC.Services
       _voiceService = voiceService;
     }
     
-    public override string VisitChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context)
+    public override string VisitCheckVoiceState([NotNull] Combined1Parser.CheckVoiceStateContext context)
     {
-      return nameof(VisitChechVoiceState);
+      return nameof(VisitCheckVoiceState);
     }
 
     public override string VisitTurnUpVoice([NotNull] Combined1Parser.TurnUpVoiceContext context)
