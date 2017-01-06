@@ -108,6 +108,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO">
       <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
       <Private>True</Private>
@@ -156,6 +157,8 @@
     <Compile Include="Combined1.g4.parser.cs">
       <DependentUpon>Combined1.g4</DependentUpon>
     </Compile>
+    <Compile Include="Domain\Program.cs" />
+    <Compile Include="Domain\ProgramList.cs" />
     <Compile Include="obj\Debug\Combined1BaseListener.cs" />
     <Compile Include="obj\Debug\Combined1BaseVisitor.cs" />
     <Compile Include="obj\Debug\Combined1Lexer.cs" />
@@ -165,11 +168,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CommonService.cs" />
+    <Compile Include="Services\ExternalProcessManager.cs" />
     <Compile Include="Services\GrammarService.cs" />
     <Compile Include="Services\Interfaces\ICommonService.cs" />
+    <Compile Include="Services\Interfaces\IExternalProcessManager.cs" />
     <Compile Include="Services\Interfaces\IGrammarService.cs" />
     <Compile Include="Services\Interfaces\IMainService.cs" />
     <Compile Include="Services\Interfaces\IVisitor.cs" />
+    <Compile Include="Services\Interfaces\IXmlReader.cs" />
     <Compile Include="Services\MainService.cs" />
     <Compile Include="Services\Interfaces\IScreenService.cs" />
     <Compile Include="Services\Interfaces\ISpeechRecognationService.cs" />
@@ -180,6 +186,7 @@
     <Compile Include="Services\VoiceRecordService.cs" />
     <Compile Include="Services\VolumeService.cs" />
     <Compile Include="Services\Visitor.cs" />
+    <Compile Include="Services\XmlReader.cs" />
     <Compile Include="WindsorInstallers\ServicesInstaller.cs" />
     <Compile Include="WindsorInstallers\WrappersInstaller.cs" />
     <Compile Include="Wrapper\Interfaces\Iuser32dllCommonWrapper.cs" />

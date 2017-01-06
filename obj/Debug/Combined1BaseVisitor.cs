@@ -35,7 +35,7 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class Combined1BaseVisitor<Result> : AbstractParseTreeVisitor<Result>, ICombined1Visitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Down</c>
+	/// Visit a parse tree produced by the <c>ChechVoiceState</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -44,10 +44,10 @@ public partial class Combined1BaseVisitor<Result> : AbstractParseTreeVisitor<Res
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitDown([NotNull] Combined1Parser.DownContext context) { return VisitChildren(context); }
+	public virtual Result VisitChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Kom</c>
+	/// Visit a parse tree produced by the <c>TurnUpVoice</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -56,10 +56,10 @@ public partial class Combined1BaseVisitor<Result> : AbstractParseTreeVisitor<Res
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitKom([NotNull] Combined1Parser.KomContext context) { return VisitChildren(context); }
+	public virtual Result VisitTurnUpVoice([NotNull] Combined1Parser.TurnUpVoiceContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Change</c>
+	/// Visit a parse tree produced by the <c>TurnDownVoice</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -68,7 +68,7 @@ public partial class Combined1BaseVisitor<Result> : AbstractParseTreeVisitor<Res
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitChange([NotNull] Combined1Parser.ChangeContext context) { return VisitChildren(context); }
+	public virtual Result VisitTurnDownVoice([NotNull] Combined1Parser.TurnDownVoiceContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="Combined1Parser.prog"/>.
@@ -126,6 +126,17 @@ public partial class Combined1BaseVisitor<Result> : AbstractParseTreeVisitor<Res
 	public virtual Result VisitVoiceDown([NotNull] Combined1Parser.VoiceDownContext context) { return VisitChildren(context); }
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="Combined1Parser.voiceState"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitVoiceState([NotNull] Combined1Parser.VoiceStateContext context) { return VisitChildren(context); }
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="Combined1Parser.percent"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
@@ -135,17 +146,6 @@ public partial class Combined1BaseVisitor<Result> : AbstractParseTreeVisitor<Res
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	public virtual Result VisitPercent([NotNull] Combined1Parser.PercentContext context) { return VisitChildren(context); }
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="Combined1Parser.voiceChange"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitVoiceChange([NotNull] Combined1Parser.VoiceChangeContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="Combined1Parser.val"/>.

@@ -31,23 +31,22 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 [System.CLSCompliant(false)]
 public partial class Combined1Parser : Parser {
 	public const int
-		T__0=1, T__1=2, INT=3, MUL=4, DIV=5, ADD=6, SUB=7, COMMAND=8, VOICE_UP_COMMAND=9, 
-		VOICE_DOWN_COMMAND=10, VOICE_COMMAND=11, PERCENT=12, WS=13;
+		T__0=1, T__1=2, INT=3, COMMAND=4, VOICE_UP_COMMAND=5, VOICE_DOWN_COMMAND=6, 
+		VOICE_STATE_COMMAND=7, PERCENT=8, WS=9;
 	public const int
 		RULE_prog = 0, RULE_expr = 1, RULE_value = 2, RULE_voiceUp = 3, RULE_voiceDown = 4, 
-		RULE_percent = 5, RULE_voiceChange = 6, RULE_val = 7;
+		RULE_voiceState = 5, RULE_percent = 6, RULE_val = 7;
 	public static readonly string[] ruleNames = {
-		"prog", "expr", "value", "voiceUp", "voiceDown", "percent", "voiceChange", 
+		"prog", "expr", "value", "voiceUp", "voiceDown", "voiceState", "percent", 
 		"val"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'o'", "'na'", null, "'*'", "'/'", null, "'-'", null, null, null, 
-		"'g?o?no??'", "'%'"
+		null, "'o'", "'na'", null, null, null, null, "'g³oœnoœæ'", "'%'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, "INT", "MUL", "DIV", "ADD", "SUB", "COMMAND", "VOICE_UP_COMMAND", 
-		"VOICE_DOWN_COMMAND", "VOICE_COMMAND", "PERCENT", "WS"
+		null, null, null, "INT", "COMMAND", "VOICE_UP_COMMAND", "VOICE_DOWN_COMMAND", 
+		"VOICE_STATE_COMMAND", "PERCENT", "WS"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -146,7 +145,7 @@ public partial class Combined1Parser : Parser {
 				State = 19;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COMMAND) | (1L << VOICE_UP_COMMAND) | (1L << VOICE_DOWN_COMMAND) | (1L << VOICE_COMMAND))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COMMAND) | (1L << VOICE_UP_COMMAND) | (1L << VOICE_DOWN_COMMAND) | (1L << VOICE_STATE_COMMAND))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -172,9 +171,9 @@ public partial class Combined1Parser : Parser {
 			base.CopyFrom(context);
 		}
 	}
-	public partial class DownContext : ExprContext {
-		public VoiceDownContext voiceDown() {
-			return GetRuleContext<VoiceDownContext>(0);
+	public partial class ChechVoiceStateContext : ExprContext {
+		public VoiceStateContext voiceState() {
+			return GetRuleContext<VoiceStateContext>(0);
 		}
 		public ITerminalNode[] COMMAND() { return GetTokens(Combined1Parser.COMMAND); }
 		public ITerminalNode COMMAND(int i) {
@@ -186,22 +185,22 @@ public partial class Combined1Parser : Parser {
 		public ValueContext value(int i) {
 			return GetRuleContext<ValueContext>(i);
 		}
-		public DownContext(ExprContext context) { CopyFrom(context); }
+		public ChechVoiceStateContext(ExprContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			ICombined1Listener typedListener = listener as ICombined1Listener;
-			if (typedListener != null) typedListener.EnterDown(this);
+			if (typedListener != null) typedListener.EnterChechVoiceState(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			ICombined1Listener typedListener = listener as ICombined1Listener;
-			if (typedListener != null) typedListener.ExitDown(this);
+			if (typedListener != null) typedListener.ExitChechVoiceState(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			ICombined1Visitor<TResult> typedVisitor = visitor as ICombined1Visitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitDown(this);
+			if (typedVisitor != null) return typedVisitor.VisitChechVoiceState(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
-	public partial class KomContext : ExprContext {
+	public partial class TurnUpVoiceContext : ExprContext {
 		public VoiceUpContext voiceUp() {
 			return GetRuleContext<VoiceUpContext>(0);
 		}
@@ -215,24 +214,24 @@ public partial class Combined1Parser : Parser {
 		public ValueContext value(int i) {
 			return GetRuleContext<ValueContext>(i);
 		}
-		public KomContext(ExprContext context) { CopyFrom(context); }
+		public TurnUpVoiceContext(ExprContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			ICombined1Listener typedListener = listener as ICombined1Listener;
-			if (typedListener != null) typedListener.EnterKom(this);
+			if (typedListener != null) typedListener.EnterTurnUpVoice(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			ICombined1Listener typedListener = listener as ICombined1Listener;
-			if (typedListener != null) typedListener.ExitKom(this);
+			if (typedListener != null) typedListener.ExitTurnUpVoice(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			ICombined1Visitor<TResult> typedVisitor = visitor as ICombined1Visitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitKom(this);
+			if (typedVisitor != null) return typedVisitor.VisitTurnUpVoice(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
-	public partial class ChangeContext : ExprContext {
-		public VoiceChangeContext voiceChange() {
-			return GetRuleContext<VoiceChangeContext>(0);
+	public partial class TurnDownVoiceContext : ExprContext {
+		public VoiceDownContext voiceDown() {
+			return GetRuleContext<VoiceDownContext>(0);
 		}
 		public ITerminalNode[] COMMAND() { return GetTokens(Combined1Parser.COMMAND); }
 		public ITerminalNode COMMAND(int i) {
@@ -244,18 +243,18 @@ public partial class Combined1Parser : Parser {
 		public ValueContext value(int i) {
 			return GetRuleContext<ValueContext>(i);
 		}
-		public ChangeContext(ExprContext context) { CopyFrom(context); }
+		public TurnDownVoiceContext(ExprContext context) { CopyFrom(context); }
 		public override void EnterRule(IParseTreeListener listener) {
 			ICombined1Listener typedListener = listener as ICombined1Listener;
-			if (typedListener != null) typedListener.EnterChange(this);
+			if (typedListener != null) typedListener.EnterTurnDownVoice(this);
 		}
 		public override void ExitRule(IParseTreeListener listener) {
 			ICombined1Listener typedListener = listener as ICombined1Listener;
-			if (typedListener != null) typedListener.ExitChange(this);
+			if (typedListener != null) typedListener.ExitTurnDownVoice(this);
 		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			ICombined1Visitor<TResult> typedVisitor = visitor as ICombined1Visitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitChange(this);
+			if (typedVisitor != null) return typedVisitor.VisitTurnDownVoice(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -270,7 +269,7 @@ public partial class Combined1Parser : Parser {
 			_errHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(_input,7,_ctx) ) {
 			case 1:
-				_localctx = new KomContext(_localctx);
+				_localctx = new TurnUpVoiceContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
 				{
@@ -306,7 +305,7 @@ public partial class Combined1Parser : Parser {
 				break;
 
 			case 2:
-				_localctx = new ChangeContext(_localctx);
+				_localctx = new ChechVoiceStateContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
 				{
 				{
@@ -323,7 +322,7 @@ public partial class Combined1Parser : Parser {
 					_errHandler.Sync(this);
 					_la = _input.La(1);
 				}
-				State = 40; voiceChange();
+				State = 40; voiceState();
 				State = 44;
 				_errHandler.Sync(this);
 				_la = _input.La(1);
@@ -342,7 +341,7 @@ public partial class Combined1Parser : Parser {
 				break;
 
 			case 3:
-				_localctx = new DownContext(_localctx);
+				_localctx = new TurnDownVoiceContext(_localctx);
 				EnterOuterAlt(_localctx, 3);
 				{
 				{
@@ -559,6 +558,49 @@ public partial class Combined1Parser : Parser {
 		return _localctx;
 	}
 
+	public partial class VoiceStateContext : ParserRuleContext {
+		public ITerminalNode VOICE_STATE_COMMAND() { return GetToken(Combined1Parser.VOICE_STATE_COMMAND, 0); }
+		public VoiceStateContext(ParserRuleContext parent, int invokingState)
+			: base(parent, invokingState)
+		{
+		}
+		public override int RuleIndex { get { return RULE_voiceState; } }
+		public override void EnterRule(IParseTreeListener listener) {
+			ICombined1Listener typedListener = listener as ICombined1Listener;
+			if (typedListener != null) typedListener.EnterVoiceState(this);
+		}
+		public override void ExitRule(IParseTreeListener listener) {
+			ICombined1Listener typedListener = listener as ICombined1Listener;
+			if (typedListener != null) typedListener.ExitVoiceState(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICombined1Visitor<TResult> typedVisitor = visitor as ICombined1Visitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVoiceState(this);
+			else return visitor.VisitChildren(this);
+		}
+	}
+
+	[RuleVersion(0)]
+	public VoiceStateContext voiceState() {
+		VoiceStateContext _localctx = new VoiceStateContext(_ctx, State);
+		EnterRule(_localctx, 10, RULE_voiceState);
+		try {
+			EnterOuterAlt(_localctx, 1);
+			{
+			State = 79; Match(VOICE_STATE_COMMAND);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.ReportError(this, re);
+			_errHandler.Recover(this, re);
+		}
+		finally {
+			ExitRule();
+		}
+		return _localctx;
+	}
+
 	public partial class PercentContext : ParserRuleContext {
 		public ITerminalNode PERCENT() { return GetToken(Combined1Parser.PERCENT, 0); }
 		public PercentContext(ParserRuleContext parent, int invokingState)
@@ -584,54 +626,11 @@ public partial class Combined1Parser : Parser {
 	[RuleVersion(0)]
 	public PercentContext percent() {
 		PercentContext _localctx = new PercentContext(_ctx, State);
-		EnterRule(_localctx, 10, RULE_percent);
+		EnterRule(_localctx, 12, RULE_percent);
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 79; Match(PERCENT);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.ReportError(this, re);
-			_errHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
-	}
-
-	public partial class VoiceChangeContext : ParserRuleContext {
-		public ITerminalNode VOICE_COMMAND() { return GetToken(Combined1Parser.VOICE_COMMAND, 0); }
-		public VoiceChangeContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_voiceChange; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			ICombined1Listener typedListener = listener as ICombined1Listener;
-			if (typedListener != null) typedListener.EnterVoiceChange(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			ICombined1Listener typedListener = listener as ICombined1Listener;
-			if (typedListener != null) typedListener.ExitVoiceChange(this);
-		}
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ICombined1Visitor<TResult> typedVisitor = visitor as ICombined1Visitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitVoiceChange(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public VoiceChangeContext voiceChange() {
-		VoiceChangeContext _localctx = new VoiceChangeContext(_ctx, State);
-		EnterRule(_localctx, 12, RULE_voiceChange);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 81; Match(VOICE_COMMAND);
+			State = 81; Match(PERCENT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -689,36 +688,36 @@ public partial class Combined1Parser : Parser {
 	}
 
 	public static readonly string _serializedATN =
-		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\xFX\x4\x2\t\x2"+
-		"\x4\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4\t\t"+
-		"\t\x3\x2\x6\x2\x14\n\x2\r\x2\xE\x2\x15\x3\x3\a\x3\x19\n\x3\f\x3\xE\x3"+
-		"\x1C\v\x3\x3\x3\x3\x3\a\x3 \n\x3\f\x3\xE\x3#\v\x3\x3\x3\a\x3&\n\x3\f\x3"+
-		"\xE\x3)\v\x3\x3\x3\x3\x3\a\x3-\n\x3\f\x3\xE\x3\x30\v\x3\x3\x3\a\x3\x33"+
-		"\n\x3\f\x3\xE\x3\x36\v\x3\x3\x3\x3\x3\a\x3:\n\x3\f\x3\xE\x3=\v\x3\x5\x3"+
-		"?\n\x3\x3\x4\a\x4\x42\n\x4\f\x4\xE\x4\x45\v\x4\x3\x4\x3\x4\a\x4I\n\x4"+
-		"\f\x4\xE\x4L\v\x4\x3\x5\x3\x5\x3\x6\x3\x6\x3\a\x3\a\x3\b\x3\b\x3\t\x3"+
-		"\t\x3\t\x2\x2\x2\n\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\xE\x2\x10\x2\x2\x3"+
-		"\x3\x2\x3\x4Z\x2\x13\x3\x2\x2\x2\x4>\x3\x2\x2\x2\x6\x43\x3\x2\x2\x2\b"+
-		"M\x3\x2\x2\x2\nO\x3\x2\x2\x2\fQ\x3\x2\x2\x2\xES\x3\x2\x2\x2\x10U\x3\x2"+
-		"\x2\x2\x12\x14\x5\x4\x3\x2\x13\x12\x3\x2\x2\x2\x14\x15\x3\x2\x2\x2\x15"+
-		"\x13\x3\x2\x2\x2\x15\x16\x3\x2\x2\x2\x16\x3\x3\x2\x2\x2\x17\x19\a\n\x2"+
-		"\x2\x18\x17\x3\x2\x2\x2\x19\x1C\x3\x2\x2\x2\x1A\x18\x3\x2\x2\x2\x1A\x1B"+
-		"\x3\x2\x2\x2\x1B\x1D\x3\x2\x2\x2\x1C\x1A\x3\x2\x2\x2\x1D!\x5\b\x5\x2\x1E"+
-		" \x5\x6\x4\x2\x1F\x1E\x3\x2\x2\x2 #\x3\x2\x2\x2!\x1F\x3\x2\x2\x2!\"\x3"+
-		"\x2\x2\x2\"?\x3\x2\x2\x2#!\x3\x2\x2\x2$&\a\n\x2\x2%$\x3\x2\x2\x2&)\x3"+
-		"\x2\x2\x2\'%\x3\x2\x2\x2\'(\x3\x2\x2\x2(*\x3\x2\x2\x2)\'\x3\x2\x2\x2*"+
-		".\x5\xE\b\x2+-\x5\x6\x4\x2,+\x3\x2\x2\x2-\x30\x3\x2\x2\x2.,\x3\x2\x2\x2"+
-		"./\x3\x2\x2\x2/?\x3\x2\x2\x2\x30.\x3\x2\x2\x2\x31\x33\a\n\x2\x2\x32\x31"+
-		"\x3\x2\x2\x2\x33\x36\x3\x2\x2\x2\x34\x32\x3\x2\x2\x2\x34\x35\x3\x2\x2"+
-		"\x2\x35\x37\x3\x2\x2\x2\x36\x34\x3\x2\x2\x2\x37;\x5\n\x6\x2\x38:\x5\x6"+
-		"\x4\x2\x39\x38\x3\x2\x2\x2:=\x3\x2\x2\x2;\x39\x3\x2\x2\x2;<\x3\x2\x2\x2"+
-		"<?\x3\x2\x2\x2=;\x3\x2\x2\x2>\x1A\x3\x2\x2\x2>\'\x3\x2\x2\x2>\x34\x3\x2"+
+		"\x3\xAF6F\x8320\x479D\xB75C\x4880\x1605\x191C\xAB37\x3\vX\x4\x2\t\x2\x4"+
+		"\x3\t\x3\x4\x4\t\x4\x4\x5\t\x5\x4\x6\t\x6\x4\a\t\a\x4\b\t\b\x4\t\t\t\x3"+
+		"\x2\x6\x2\x14\n\x2\r\x2\xE\x2\x15\x3\x3\a\x3\x19\n\x3\f\x3\xE\x3\x1C\v"+
+		"\x3\x3\x3\x3\x3\a\x3 \n\x3\f\x3\xE\x3#\v\x3\x3\x3\a\x3&\n\x3\f\x3\xE\x3"+
+		")\v\x3\x3\x3\x3\x3\a\x3-\n\x3\f\x3\xE\x3\x30\v\x3\x3\x3\a\x3\x33\n\x3"+
+		"\f\x3\xE\x3\x36\v\x3\x3\x3\x3\x3\a\x3:\n\x3\f\x3\xE\x3=\v\x3\x5\x3?\n"+
+		"\x3\x3\x4\a\x4\x42\n\x4\f\x4\xE\x4\x45\v\x4\x3\x4\x3\x4\a\x4I\n\x4\f\x4"+
+		"\xE\x4L\v\x4\x3\x5\x3\x5\x3\x6\x3\x6\x3\a\x3\a\x3\b\x3\b\x3\t\x3\t\x3"+
+		"\t\x2\x2\x2\n\x2\x2\x4\x2\x6\x2\b\x2\n\x2\f\x2\xE\x2\x10\x2\x2\x3\x3\x2"+
+		"\x3\x4Z\x2\x13\x3\x2\x2\x2\x4>\x3\x2\x2\x2\x6\x43\x3\x2\x2\x2\bM\x3\x2"+
+		"\x2\x2\nO\x3\x2\x2\x2\fQ\x3\x2\x2\x2\xES\x3\x2\x2\x2\x10U\x3\x2\x2\x2"+
+		"\x12\x14\x5\x4\x3\x2\x13\x12\x3\x2\x2\x2\x14\x15\x3\x2\x2\x2\x15\x13\x3"+
+		"\x2\x2\x2\x15\x16\x3\x2\x2\x2\x16\x3\x3\x2\x2\x2\x17\x19\a\x6\x2\x2\x18"+
+		"\x17\x3\x2\x2\x2\x19\x1C\x3\x2\x2\x2\x1A\x18\x3\x2\x2\x2\x1A\x1B\x3\x2"+
+		"\x2\x2\x1B\x1D\x3\x2\x2\x2\x1C\x1A\x3\x2\x2\x2\x1D!\x5\b\x5\x2\x1E \x5"+
+		"\x6\x4\x2\x1F\x1E\x3\x2\x2\x2 #\x3\x2\x2\x2!\x1F\x3\x2\x2\x2!\"\x3\x2"+
+		"\x2\x2\"?\x3\x2\x2\x2#!\x3\x2\x2\x2$&\a\x6\x2\x2%$\x3\x2\x2\x2&)\x3\x2"+
+		"\x2\x2\'%\x3\x2\x2\x2\'(\x3\x2\x2\x2(*\x3\x2\x2\x2)\'\x3\x2\x2\x2*.\x5"+
+		"\f\a\x2+-\x5\x6\x4\x2,+\x3\x2\x2\x2-\x30\x3\x2\x2\x2.,\x3\x2\x2\x2./\x3"+
+		"\x2\x2\x2/?\x3\x2\x2\x2\x30.\x3\x2\x2\x2\x31\x33\a\x6\x2\x2\x32\x31\x3"+
+		"\x2\x2\x2\x33\x36\x3\x2\x2\x2\x34\x32\x3\x2\x2\x2\x34\x35\x3\x2\x2\x2"+
+		"\x35\x37\x3\x2\x2\x2\x36\x34\x3\x2\x2\x2\x37;\x5\n\x6\x2\x38:\x5\x6\x4"+
+		"\x2\x39\x38\x3\x2\x2\x2:=\x3\x2\x2\x2;\x39\x3\x2\x2\x2;<\x3\x2\x2\x2<"+
+		"?\x3\x2\x2\x2=;\x3\x2\x2\x2>\x1A\x3\x2\x2\x2>\'\x3\x2\x2\x2>\x34\x3\x2"+
 		"\x2\x2?\x5\x3\x2\x2\x2@\x42\t\x2\x2\x2\x41@\x3\x2\x2\x2\x42\x45\x3\x2"+
 		"\x2\x2\x43\x41\x3\x2\x2\x2\x43\x44\x3\x2\x2\x2\x44\x46\x3\x2\x2\x2\x45"+
-		"\x43\x3\x2\x2\x2\x46J\x5\x10\t\x2GI\x5\f\a\x2HG\x3\x2\x2\x2IL\x3\x2\x2"+
-		"\x2JH\x3\x2\x2\x2JK\x3\x2\x2\x2K\a\x3\x2\x2\x2LJ\x3\x2\x2\x2MN\a\v\x2"+
-		"\x2N\t\x3\x2\x2\x2OP\a\f\x2\x2P\v\x3\x2\x2\x2QR\a\xE\x2\x2R\r\x3\x2\x2"+
-		"\x2ST\a\r\x2\x2T\xF\x3\x2\x2\x2UV\a\x5\x2\x2V\x11\x3\x2\x2\x2\f\x15\x1A"+
+		"\x43\x3\x2\x2\x2\x46J\x5\x10\t\x2GI\x5\xE\b\x2HG\x3\x2\x2\x2IL\x3\x2\x2"+
+		"\x2JH\x3\x2\x2\x2JK\x3\x2\x2\x2K\a\x3\x2\x2\x2LJ\x3\x2\x2\x2MN\a\a\x2"+
+		"\x2N\t\x3\x2\x2\x2OP\a\b\x2\x2P\v\x3\x2\x2\x2QR\a\t\x2\x2R\r\x3\x2\x2"+
+		"\x2ST\a\n\x2\x2T\xF\x3\x2\x2\x2UV\a\x5\x2\x2V\x11\x3\x2\x2\x2\f\x15\x1A"+
 		"!\'.\x34;>\x43J";
 	public static readonly ATN _ATN =
 		new ATNDeserializer().Deserialize(_serializedATN.ToCharArray());

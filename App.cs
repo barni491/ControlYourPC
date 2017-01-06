@@ -21,7 +21,7 @@ namespace sterowanie_glosem
     {
       _mainService.Process();
 
-      Console.In.Read();
+      //Console.ReadKey();
     }
   }
 }

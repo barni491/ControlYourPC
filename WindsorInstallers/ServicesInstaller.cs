@@ -26,6 +26,11 @@ namespace sterowanie_glosem.WindsorInstallers
           .LifestyleSingleton());
 
       container.Register(
+        Component.For<IExternalProcessManager>()
+          .ImplementedBy<ExternalProcessManager>()
+          .LifestyleSingleton());
+      
+      container.Register(
         Component.For<IVoiceRecordService>()
           .ImplementedBy<VoiceRecordService>()
           .LifestyleSingleton());
@@ -53,6 +58,11 @@ namespace sterowanie_glosem.WindsorInstallers
       container.Register(
         Component.For<IMainService>()
           .ImplementedBy<MainService>()
+          .LifestyleSingleton());
+
+      container.Register(
+        Component.For<IXmlReader>()
+          .ImplementedBy<XmlReader>()
           .LifestyleSingleton());
     }
   }

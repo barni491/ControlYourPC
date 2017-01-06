@@ -36,49 +36,49 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class Combined1BaseListener : ICombined1Listener {
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Down</c>
+	/// Enter a parse tree produced by the <c>ChechVoiceState</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterDown([NotNull] Combined1Parser.DownContext context) { }
+	public virtual void EnterChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>Down</c>
+	/// Exit a parse tree produced by the <c>ChechVoiceState</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitDown([NotNull] Combined1Parser.DownContext context) { }
+	public virtual void ExitChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Kom</c>
+	/// Enter a parse tree produced by the <c>TurnUpVoice</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterKom([NotNull] Combined1Parser.KomContext context) { }
+	public virtual void EnterTurnUpVoice([NotNull] Combined1Parser.TurnUpVoiceContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>Kom</c>
+	/// Exit a parse tree produced by the <c>TurnUpVoice</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitKom([NotNull] Combined1Parser.KomContext context) { }
+	public virtual void ExitTurnUpVoice([NotNull] Combined1Parser.TurnUpVoiceContext context) { }
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>Change</c>
+	/// Enter a parse tree produced by the <c>TurnDownVoice</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterChange([NotNull] Combined1Parser.ChangeContext context) { }
+	public virtual void EnterTurnDownVoice([NotNull] Combined1Parser.TurnDownVoiceContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by the <c>Change</c>
+	/// Exit a parse tree produced by the <c>TurnDownVoice</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitChange([NotNull] Combined1Parser.ChangeContext context) { }
+	public virtual void ExitTurnDownVoice([NotNull] Combined1Parser.TurnDownVoiceContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="Combined1Parser.prog"/>.
@@ -146,6 +146,19 @@ public partial class Combined1BaseListener : ICombined1Listener {
 	public virtual void ExitVoiceDown([NotNull] Combined1Parser.VoiceDownContext context) { }
 
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="Combined1Parser.voiceState"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterVoiceState([NotNull] Combined1Parser.VoiceStateContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="Combined1Parser.voiceState"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitVoiceState([NotNull] Combined1Parser.VoiceStateContext context) { }
+
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="Combined1Parser.percent"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -157,19 +170,6 @@ public partial class Combined1BaseListener : ICombined1Listener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitPercent([NotNull] Combined1Parser.PercentContext context) { }
-
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="Combined1Parser.voiceChange"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterVoiceChange([NotNull] Combined1Parser.VoiceChangeContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="Combined1Parser.voiceChange"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitVoiceChange([NotNull] Combined1Parser.VoiceChangeContext context) { }
 
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="Combined1Parser.val"/>.

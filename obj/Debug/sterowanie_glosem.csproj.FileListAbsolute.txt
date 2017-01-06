@@ -65,4 +65,3 @@ C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourP
 C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\sterowanie_glosem.csproj.Antlr4GeneratedCodeFileListAbsolute.txt
 C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\sterowanie_glosem.exe
 C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\sterowanie_glosem.pdb
-C:\Users\Konrad\Documents\Visual Studio 2015\Projects\ControlYourPC\ControlYourPC\obj\Debug\sterowanie_glosem.csprojResolveAssemblyReference.cache

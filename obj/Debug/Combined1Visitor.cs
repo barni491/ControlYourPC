@@ -33,28 +33,28 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface ICombined1Visitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Down</c>
+	/// Visit a parse tree produced by the <c>ChechVoiceState</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitDown([NotNull] Combined1Parser.DownContext context);
+	Result VisitChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Kom</c>
+	/// Visit a parse tree produced by the <c>TurnUpVoice</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitKom([NotNull] Combined1Parser.KomContext context);
+	Result VisitTurnUpVoice([NotNull] Combined1Parser.TurnUpVoiceContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>Change</c>
+	/// Visit a parse tree produced by the <c>TurnDownVoice</c>
 	/// labeled alternative in <see cref="Combined1Parser.expr"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitChange([NotNull] Combined1Parser.ChangeContext context);
+	Result VisitTurnDownVoice([NotNull] Combined1Parser.TurnDownVoiceContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="Combined1Parser.prog"/>.
@@ -92,18 +92,18 @@ public interface ICombined1Visitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitVoiceDown([NotNull] Combined1Parser.VoiceDownContext context);
 
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="Combined1Parser.voiceState"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitVoiceState([NotNull] Combined1Parser.VoiceStateContext context);
+
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="Combined1Parser.percent"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitPercent([NotNull] Combined1Parser.PercentContext context);
-
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="Combined1Parser.voiceChange"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitVoiceChange([NotNull] Combined1Parser.VoiceChangeContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="Combined1Parser.val"/>.

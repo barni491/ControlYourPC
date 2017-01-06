@@ -14,24 +14,45 @@ namespace sterowanie_glosem.Services
       _volumeService = volumeService;
     }
     
-    public override string VisitKom([NotNull] Combined1Parser.KomContext context)
+    public override string VisitChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context)
     {
-      return "ok";
+      return nameof(VisitChechVoiceState);
     }
 
-    public override string VisitDown([NotNull] Combined1Parser.DownContext context)
+    public override string VisitTurnUpVoice([NotNull] Combined1Parser.TurnUpVoiceContext context)
     {
       Combined1Parser.ValueContext[] values = context.value();
 
       int? value = GetValueFromContext(values);
 
-      Console.Out.WriteLine("Przyciszanie o " + value);
+      if (value.HasValue)
+      {
+        _volumeService.VolumeUp(value.Value);
 
-      _volumeService.VolumeDown(1);
+        Console.Out.WriteLine($"Podgłaszanie o [{value}].");
+      }
 
       Console.Out.Write(context.ToStringTree());
 
-      return base.VisitDown(context);
+      return base.VisitTurnUpVoice(context);
+    }
+
+    public override string VisitTurnDownVoice([NotNull] Combined1Parser.TurnDownVoiceContext context)
+    {
+      Combined1Parser.ValueContext[] values = context.value();
+
+      int? value = GetValueFromContext(values);
+      
+      if (value.HasValue)
+      {
+        _volumeService.VolumeDown(value.Value);
+
+        Console.Out.WriteLine($"Przyciszanie o [{value}].");
+      }
+
+      Console.Out.Write(context.ToStringTree());
+
+      return base.VisitTurnDownVoice(context);
     }
 
     private static int? GetValueFromContext(Combined1Parser.ValueContext[] contexts)
