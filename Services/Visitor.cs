@@ -14,14 +14,14 @@ namespace ControlYourPC.Services
       _voiceService = voiceService;
     }
     
-    public override string VisitChechVoiceState([NotNull] ControlYourPC.Combined1Parser.ChechVoiceStateContext context)
+    public override string VisitChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context)
     {
       return nameof(VisitChechVoiceState);
     }
 
-    public override string VisitTurnUpVoice([NotNull] ControlYourPC.Combined1Parser.TurnUpVoiceContext context)
+    public override string VisitTurnUpVoice([NotNull] Combined1Parser.TurnUpVoiceContext context)
     {
-      ControlYourPC.Combined1Parser.ValueContext[] values = context.value();
+      Combined1Parser.ValueContext[] values = context.value();
 
       int? value = GetValueFromContext(values);
 
@@ -31,16 +31,15 @@ namespace ControlYourPC.Services
 
         Console.Out.WriteLine($"Podgłaszanie o [{value}].");
       }
-            int? value = null;
 
       Console.Out.Write(context.ToStringTree());
 
       return base.VisitTurnUpVoice(context);
     }
 
-    public override string VisitTurnDownVoice([NotNull] ControlYourPC.Combined1Parser.TurnDownVoiceContext context)
+    public override string VisitTurnDownVoice([NotNull] Combined1Parser.TurnDownVoiceContext context)
     {
-      ControlYourPC.Combined1Parser.ValueContext[] values = context.value();
+      Combined1Parser.ValueContext[] values = context.value();
 
       int? value = GetValueFromContext(values);
       
@@ -56,7 +55,7 @@ namespace ControlYourPC.Services
       return base.VisitTurnDownVoice(context);
     }
 
-    private static int? GetValueFromContext(ControlYourPC.Combined1Parser.ValueContext[] contexts)
+    private static int? GetValueFromContext(Combined1Parser.ValueContext[] contexts)
     {
       if (contexts.Length > 0)
       {

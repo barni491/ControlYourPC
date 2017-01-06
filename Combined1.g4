@@ -6,10 +6,6 @@ expr : (COMMAND* voiceUp value*)   #TurnUpVoice
 		| (COMMAND* voiceState value*) #ChechVoiceState
 		| (COMMAND* voiceDown value* ) #TurnDownVoice;
 
-expr : (COMMAND? voiceUp value?)   #Up
-		| (COMMAND? voiceChange value?) #Change
-		| (COMMAND? voiceDown value? ) #Down;
-
 value :('o')? val percent?;
 
 voiceUp : VOICE_UP_COMMAND;
