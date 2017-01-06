@@ -1,5 +1,4 @@
 ﻿using sterowanie_glosem.Services.Interfaces;
-using sterowanie_glosem.Wrapper;
 using sterowanie_glosem.Wrapper.Interfaces;
 
 namespace sterowanie_glosem.Services
@@ -17,12 +16,20 @@ namespace sterowanie_glosem.Services
 
     public void VolumeUp(int value)
     {
-      _volumeFunctionWrapper.VolumeUp();
+      int repetitionCount = value / 2;
+      for (int i = 0; i < repetitionCount; i++)
+      {
+        _volumeFunctionWrapper.VolumeUp();
+      }
     }
 
     public void VolumeDown(int value)
     {
-      _volumeFunctionWrapper.VolumeDown();
+      int repetitionCount = value / 2;
+      for (int i = 0; i < repetitionCount; i++)
+      {
+        _volumeFunctionWrapper.VolumeDown();
+      }
     }
 
     public void Mute()
