@@ -2,6 +2,6 @@
 {
   public interface IScreenService
   {
-    void DoPrintScreen();
+    void TakePrintScreen();
   }
 }

@@ -1,6 +1,7 @@
 ﻿using Antlr4.Runtime;
 using sterowanie_glosem.Services.Interfaces;
 using System;
+using sterowanie_glosem.Domain;
 
 namespace sterowanie_glosem.Services
 {
@@ -13,7 +14,7 @@ namespace sterowanie_glosem.Services
       _visitor = visitor;
     }
 
-    public void AnalizeGrammar(string text)
+    public Command AnalizeGrammar(string text)
     {
       var input = new AntlrInputStream(text);
       var lexer = new Combined1Lexer(input);
@@ -27,6 +28,8 @@ namespace sterowanie_glosem.Services
 
       Console.WriteLine(stringTree);
       Console.WriteLine(value);
+
+      return new Command();
     }
   }
 }

@@ -3,12 +3,12 @@ using sterowanie_glosem.Wrapper.Interfaces;
 
 namespace sterowanie_glosem.Services
 {
-  public class VolumeService : IVolumeService
+  public class VoiceService : IVoiceService
   {
     private readonly Iuser32dllVolumeFunctionWrapper _volumeFunctionWrapper;
     private readonly IwinmmWrapper _winmmWrapper;
 
-    public VolumeService(Iuser32dllVolumeFunctionWrapper volumeFunctionWrapper, IwinmmWrapper winmmWrapper)
+    public VoiceService(Iuser32dllVolumeFunctionWrapper volumeFunctionWrapper, IwinmmWrapper winmmWrapper)
     {
       _volumeFunctionWrapper = volumeFunctionWrapper;
       _winmmWrapper = winmmWrapper;
@@ -19,7 +19,7 @@ namespace sterowanie_glosem.Services
       int repetitionCount = value / 2;
       for (int i = 0; i < repetitionCount; i++)
       {
-        _volumeFunctionWrapper.VolumeUp();
+        _volumeFunctionWrapper.PressVolumeUpKey();
       }
     }
 
@@ -28,13 +28,18 @@ namespace sterowanie_glosem.Services
       int repetitionCount = value / 2;
       for (int i = 0; i < repetitionCount; i++)
       {
-        _volumeFunctionWrapper.VolumeDown();
+        _volumeFunctionWrapper.PressVolumeDownKey();
       }
     }
 
     public void Mute()
     {
-      _volumeFunctionWrapper.Mute();
+      _volumeFunctionWrapper.PressMuteKey();
+    }
+
+    public void Unmute()
+    {
+      _volumeFunctionWrapper.PressMuteKey();
     }
 
     public int GetVolume()

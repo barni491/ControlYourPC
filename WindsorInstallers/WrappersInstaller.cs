@@ -11,7 +11,7 @@ namespace sterowanie_glosem.WindsorInstallers
     public void Install(IWindsorContainer container, IConfigurationStore store)
     {
       container.Register(
-       Component.For<Iuser32dllScreenFuncionWrapper, Iuser32dllVolumeFunctionWrapper, Iuser32dllCommonWrapper>()
+       Component.For<Iuser32dllCommonWrapper, Iuser32dllVolumeFunctionWrapper, Iuser32dllScreenFuncionWrapper>()
          .ImplementedBy<user32DllWrapper>()
          .LifestyleSingleton());
 

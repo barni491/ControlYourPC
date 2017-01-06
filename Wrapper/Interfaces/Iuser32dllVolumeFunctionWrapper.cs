@@ -2,10 +2,10 @@
 {
   public interface Iuser32dllVolumeFunctionWrapper
   {
-    void VolumeUp();
+    void PressVolumeUpKey();
 
-    void VolumeDown();
+    void PressVolumeDownKey();
 
-    void Mute();
+    void PressMuteKey();
   }
 }

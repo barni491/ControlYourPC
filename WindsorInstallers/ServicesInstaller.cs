@@ -11,8 +11,8 @@ namespace sterowanie_glosem.WindsorInstallers
     public void Install(IWindsorContainer container, IConfigurationStore store)
     {
       container.Register(
-        Component.For<IVolumeService>()
-          .ImplementedBy<VolumeService>()
+        Component.For<IVoiceService>()
+          .ImplementedBy<VoiceService>()
           .LifestyleSingleton());
 
       container.Register(

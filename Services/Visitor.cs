@@ -7,11 +7,11 @@ namespace sterowanie_glosem.Services
 {
   class Visitor : Combined1BaseVisitor<string>, IVisitor
   {
-    private readonly IVolumeService _volumeService;
+    private readonly IVoiceService _voiceService;
 
-    public Visitor(IVolumeService volumeService)
+    public Visitor(IVoiceService voiceService)
     {
-      _volumeService = volumeService;
+      _voiceService = voiceService;
     }
     
     public override string VisitChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context)
@@ -27,7 +27,7 @@ namespace sterowanie_glosem.Services
 
       if (value.HasValue)
       {
-        _volumeService.VolumeUp(value.Value);
+        _voiceService.VolumeUp(value.Value);
 
         Console.Out.WriteLine($"Podgłaszanie o [{value}].");
       }
@@ -45,7 +45,7 @@ namespace sterowanie_glosem.Services
       
       if (value.HasValue)
       {
-        _volumeService.VolumeDown(value.Value);
+        _voiceService.VolumeDown(value.Value);
 
         Console.Out.WriteLine($"Przyciszanie o [{value}].");
       }

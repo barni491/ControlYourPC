@@ -157,14 +157,10 @@
     <Compile Include="Combined1.g4.parser.cs">
       <DependentUpon>Combined1.g4</DependentUpon>
     </Compile>
+    <Compile Include="Domain\Command.cs" />
+    <Compile Include="Domain\CommandType.cs" />
     <Compile Include="Domain\Program.cs" />
     <Compile Include="Domain\ProgramList.cs" />
-    <Compile Include="obj\Debug\Combined1BaseListener.cs" />
-    <Compile Include="obj\Debug\Combined1BaseVisitor.cs" />
-    <Compile Include="obj\Debug\Combined1Lexer.cs" />
-    <Compile Include="obj\Debug\Combined1Listener.cs" />
-    <Compile Include="obj\Debug\Combined1Parser.cs" />
-    <Compile Include="obj\Debug\Combined1Visitor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CommonService.cs" />
@@ -180,11 +176,11 @@
     <Compile Include="Services\Interfaces\IScreenService.cs" />
     <Compile Include="Services\Interfaces\ISpeechRecognationService.cs" />
     <Compile Include="Services\Interfaces\IVoiceRecordService.cs" />
-    <Compile Include="Services\Interfaces\IVolumeService.cs" />
+    <Compile Include="Services\Interfaces\IVoiceService.cs" />
     <Compile Include="Services\ScreenService.cs" />
     <Compile Include="Services\SpeechRecognationService.cs" />
     <Compile Include="Services\VoiceRecordService.cs" />
-    <Compile Include="Services\VolumeService.cs" />
+    <Compile Include="Services\VoiceService.cs" />
     <Compile Include="Services\Visitor.cs" />
     <Compile Include="Services\XmlReader.cs" />
     <Compile Include="WindsorInstallers\ServicesInstaller.cs" />

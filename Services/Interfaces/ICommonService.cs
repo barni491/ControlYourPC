@@ -3,5 +3,7 @@
   public interface ICommonService
   {
     void TurnOnCapsLock();
+
+    void TurnOffCapsLock();
   }
 }

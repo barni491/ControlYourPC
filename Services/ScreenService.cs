@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 using sterowanie_glosem.Services.Interfaces;
-using sterowanie_glosem.Wrapper.Interfaces;
 
 namespace sterowanie_glosem.Services
 {
@@ -11,14 +11,7 @@ namespace sterowanie_glosem.Services
   {
     private static readonly string PrintScreenDirectoryPath = $"{AppDomain.CurrentDomain.BaseDirectory}Screens\\";
 
-    private readonly Iuser32dllScreenFuncionWrapper _screenFuncionWrapper;
-
-    public ScreenService(Iuser32dllScreenFuncionWrapper screenFuncionWrapper)
-    {
-      _screenFuncionWrapper = screenFuncionWrapper;
-    }
-
-    public void DoPrintScreen()
+    public void TakePrintScreen()
     {
       Rectangle rectangle = Screen.GetBounds(Point.Empty);
 
@@ -31,6 +24,11 @@ namespace sterowanie_glosem.Services
 
         string fileName = $"Screen_{DateTime.Now.ToString("dd-MM-yy HH_mm_ss_fff")}.jpg";
         string printScreenFilePath = $"{PrintScreenDirectoryPath}{fileName}";
+
+        if (!Directory.Exists(PrintScreenDirectoryPath))
+        {
+          Directory.CreateDirectory(PrintScreenDirectoryPath);
+        }
 
         bitmap.Save(printScreenFilePath, ImageFormat.Jpeg);
       }

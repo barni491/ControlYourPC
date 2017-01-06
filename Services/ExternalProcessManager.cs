@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using sterowanie_glosem.Domain;
 using sterowanie_glosem.Services.Interfaces;
 
@@ -8,7 +9,8 @@ namespace sterowanie_glosem.Services
 {
   public class ExternalProcessManager : IExternalProcessManager
   {
-    private static readonly string ProgramListFilePath = $"{AppDomain.CurrentDomain.BaseDirectory}//..//..//Programs.xml";
+    private static readonly string ProgramListFilePath =
+      $"{AppDomain.CurrentDomain.BaseDirectory}//..//..//Programs.xml";
 
     private readonly IXmlReader _xmlReader;
 
@@ -20,6 +22,12 @@ namespace sterowanie_glosem.Services
     public void Run(string programName)
     {
       ProgramList programList = _xmlReader.ReadProgramList(ProgramListFilePath);
+      if (!programList.Programs.Any())
+      {
+        Console.WriteLine($"You define any program! Program list localized in [{ProgramListFilePath}] is empty.");
+
+        return;
+      }
 
       Domain.Program selectedProgram = null;
       foreach (Domain.Program program in programList.Programs)
@@ -32,7 +40,7 @@ namespace sterowanie_glosem.Services
 
       if (selectedProgram == null)
       {
-        Console.WriteLine($"Program is not defined! Program name: [{programName}].");
+        Console.WriteLine($"Selected program is not defined! Program name: [{programName}].");
 
         return;
       }

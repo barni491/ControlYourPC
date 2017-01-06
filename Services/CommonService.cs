@@ -14,7 +14,12 @@ namespace sterowanie_glosem.Services
 
     public void TurnOnCapsLock()
     {
-      _commonWrapper.TurnOnCapsLock();
+      _commonWrapper.PressCapsLockKey();
+    }
+
+    public void TurnOffCapsLock()
+    {
+      _commonWrapper.PressCapsLockKey();
     }
   }
 }
