@@ -3,10 +3,10 @@ grammar Combined1;
 prog: expr+ ;
 
 expr : (COMMAND* voiceUp value*)   #TurnUpVoice
-		| (COMMAND* voiceState value*) #ChechVoiceState
+		| (COMMAND* voiceState value*) #CheckVoiceState
 		| (COMMAND* voiceDown value* ) #TurnDownVoice;
 
-value :('o' | 'na')* val percent*;
+value :('o')? val percent?;
 
 voiceUp : VOICE_UP_COMMAND;
 voiceDown: VOICE_DOWN_COMMAND; 

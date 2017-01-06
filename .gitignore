@@ -18,6 +18,7 @@
 *.lib
 *.sbr
 *.sdf
+*.orig
 ipch/
 obj/
 [Bb]in

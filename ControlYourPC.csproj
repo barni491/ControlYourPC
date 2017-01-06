@@ -161,6 +161,12 @@
     <Compile Include="Domain\CommandType.cs" />
     <Compile Include="Domain\Program.cs" />
     <Compile Include="Domain\ProgramList.cs" />
+    <Compile Include="obj\Debug\Combined1BaseListener.cs" />
+    <Compile Include="obj\Debug\Combined1BaseVisitor.cs" />
+    <Compile Include="obj\Debug\Combined1Lexer.cs" />
+    <Compile Include="obj\Debug\Combined1Listener.cs" />
+    <Compile Include="obj\Debug\Combined1Parser.cs" />
+    <Compile Include="obj\Debug\Combined1Visitor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CommonService.cs" />
