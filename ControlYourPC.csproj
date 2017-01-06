@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E071B905-DD86-4D6D-9F64-B63E3A10E55F}</ProjectGuid>
+    <ProjectGuid>{1366F172-F9C9-46CE-96FD-56EF854AC7FB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>sterowanie_glosem</RootNamespace>
-    <AssemblyName>sterowanie_glosem</AssemblyName>
+    <RootNamespace>ControlYourPC</RootNamespace>
+    <AssemblyName>ControlYourPC</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -196,7 +196,7 @@
     <None Include="App.config" />
     <Antlr4 Include="Combined1.g4">
       <Generator>MSBuild:Compile</Generator>
-      <CustomToolNamespace>sterowanie_glosem</CustomToolNamespace>
+      <CustomToolNamespace>ControlYourPC</CustomToolNamespace>
       <Listener>True</Listener>
       <Visitor>True</Visitor>
     </Antlr4>

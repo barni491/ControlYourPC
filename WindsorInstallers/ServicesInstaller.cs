@@ -1,10 +1,10 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using sterowanie_glosem.Services;
-using sterowanie_glosem.Services.Interfaces;
+using ControlYourPC.Services;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem.WindsorInstallers
+namespace ControlYourPC.WindsorInstallers
 {
   public class ServicesInstaller : IWindsorInstaller
   {

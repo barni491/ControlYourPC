@@ -3,9 +3,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-using sterowanie_glosem.Services.Interfaces;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   public class ScreenService : IScreenService
   {

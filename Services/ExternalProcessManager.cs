@@ -2,15 +2,15 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using sterowanie_glosem.Domain;
-using sterowanie_glosem.Services.Interfaces;
+using ControlYourPC.Domain;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   public class ExternalProcessManager : IExternalProcessManager
   {
     private static readonly string ProgramListFilePath =
-      $"{AppDomain.CurrentDomain.BaseDirectory}//..//..//Programs.xml";
+      $"{AppDomain.CurrentDomain.BaseDirectory}Programs.xml";
 
     private readonly IXmlReader _xmlReader;
 

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
-using sterowanie_glosem.Domain;
-using sterowanie_glosem.Services.Interfaces;
+using ControlYourPC.Domain;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   public class XmlReader : IXmlReader
   {

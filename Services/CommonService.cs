@@ -1,7 +1,7 @@
-﻿using sterowanie_glosem.Services.Interfaces;
-using sterowanie_glosem.Wrapper.Interfaces;
+﻿using ControlYourPC.Services.Interfaces;
+using ControlYourPC.Wrapper.Interfaces;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   public class CommonService : ICommonService
   {

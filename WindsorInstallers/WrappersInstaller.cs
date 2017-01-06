@@ -1,10 +1,10 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using sterowanie_glosem.Wrapper;
-using sterowanie_glosem.Wrapper.Interfaces;
+using ControlYourPC.Wrapper;
+using ControlYourPC.Wrapper.Interfaces;
 
-namespace sterowanie_glosem.WindsorInstallers
+namespace ControlYourPC.WindsorInstallers
 {
   public class WrappersInstaller : IWindsorInstaller
   {

@@ -1,9 +1,9 @@
 ﻿using System;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using sterowanie_glosem.Services.Interfaces;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem
+namespace ControlYourPC
 {
   public class App
   {

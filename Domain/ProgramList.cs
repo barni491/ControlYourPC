@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace sterowanie_glosem.Domain
+namespace ControlYourPC.Domain
 {
   [Serializable]
   [XmlRoot(nameof(ProgramList))]

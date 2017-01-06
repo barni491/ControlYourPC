@@ -1,8 +1,8 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using sterowanie_glosem.Wrapper.Interfaces;
+using ControlYourPC.Wrapper.Interfaces;
 
-namespace sterowanie_glosem.Wrapper
+namespace ControlYourPC.Wrapper
 {
   public class user32DllWrapper : Iuser32dllCommonWrapper, Iuser32dllVolumeFunctionWrapper, Iuser32dllScreenFuncionWrapper
   {

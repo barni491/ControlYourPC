@@ -1,4 +1,4 @@
-﻿namespace sterowanie_glosem.Domain
+﻿namespace ControlYourPC.Domain
 {
   public class Program
   {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Antlr4.Runtime.Misc;
-using sterowanie_glosem.Services.Interfaces;
+using ControlYourPC.Services.Interfaces;
 
-namespace sterowanie_glosem.Services
+namespace ControlYourPC.Services
 {
   class Visitor : Combined1BaseVisitor<string>, IVisitor
   {
@@ -14,14 +14,14 @@ namespace sterowanie_glosem.Services
       _voiceService = voiceService;
     }
     
-    public override string VisitChechVoiceState([NotNull] Combined1Parser.ChechVoiceStateContext context)
+    public override string VisitChechVoiceState([NotNull] ControlYourPC.Combined1Parser.ChechVoiceStateContext context)
     {
       return nameof(VisitChechVoiceState);
     }
 
-    public override string VisitTurnUpVoice([NotNull] Combined1Parser.TurnUpVoiceContext context)
+    public override string VisitTurnUpVoice([NotNull] ControlYourPC.Combined1Parser.TurnUpVoiceContext context)
     {
-      Combined1Parser.ValueContext[] values = context.value();
+      ControlYourPC.Combined1Parser.ValueContext[] values = context.value();
 
       int? value = GetValueFromContext(values);
 
@@ -37,9 +37,9 @@ namespace sterowanie_glosem.Services
       return base.VisitTurnUpVoice(context);
     }
 
-    public override string VisitTurnDownVoice([NotNull] Combined1Parser.TurnDownVoiceContext context)
+    public override string VisitTurnDownVoice([NotNull] ControlYourPC.Combined1Parser.TurnDownVoiceContext context)
     {
-      Combined1Parser.ValueContext[] values = context.value();
+      ControlYourPC.Combined1Parser.ValueContext[] values = context.value();
 
       int? value = GetValueFromContext(values);
       
@@ -55,7 +55,7 @@ namespace sterowanie_glosem.Services
       return base.VisitTurnDownVoice(context);
     }
 
-    private static int? GetValueFromContext(Combined1Parser.ValueContext[] contexts)
+    private static int? GetValueFromContext(ControlYourPC.Combined1Parser.ValueContext[] contexts)
     {
       if (contexts.Length > 0)
       {

@@ -1,4 +1,4 @@
-﻿namespace sterowanie_glosem
+﻿namespace ControlYourPC
 {
   class Program
   {
