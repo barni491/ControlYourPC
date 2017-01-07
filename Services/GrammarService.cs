@@ -25,7 +25,7 @@ namespace ControlYourPC.Services
 
       string stringTree = tree.ToStringTree((Parser) parser);
       string value = ((Combined1BaseVisitor<string>)_visitor).Visit(tree);
-
+  
       Console.WriteLine(stringTree);
       Console.WriteLine(value);
 

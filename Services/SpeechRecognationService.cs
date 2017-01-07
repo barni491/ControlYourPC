@@ -61,7 +61,7 @@ namespace ControlYourPC.Services
           LanguageCode = "pl-PL",
           SpeechContext = new SpeechContext
           {
-            Phrases = new List<string> {"przycisz"}
+            Phrases = new List<string> {"przycisz","głośniej","o"}
           }
         },
         Audio = new RecognitionAudio
