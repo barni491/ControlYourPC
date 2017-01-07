@@ -27,7 +27,7 @@ namespace ControlYourPC.Services
 
       if (value.HasValue)
       {
-        _voiceService.VolumeUp(value.Value);
+        _voiceService.VolumeUpAbout(value.Value.ToString());
 
         Console.Out.WriteLine($"Podgłaszanie o [{value}].");
       }
@@ -45,7 +45,7 @@ namespace ControlYourPC.Services
       
       if (value.HasValue)
       {
-        _voiceService.VolumeDown(value.Value);
+        _voiceService.VolumeDownAbout(value.Value.ToString());
 
         Console.Out.WriteLine($"Przyciszanie o [{value}].");
       }

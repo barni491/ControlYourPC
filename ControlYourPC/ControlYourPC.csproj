@@ -1,12 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\Antlr4.4.5.3\build\Antlr4.props" Condition="Exists('packages\Antlr4.4.5.3\build\Antlr4.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1366F172-F9C9-46CE-96FD-56EF854AC7FB}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ControlYourPC</RootNamespace>
     <AssemblyName>ControlYourPC</AssemblyName>
@@ -214,9 +212,7 @@
     <Compile Include="Wrapper\Interfaces\Iuser32dllCommonWrapper.cs" />
     <Compile Include="Wrapper\Interfaces\Iuser32dllScreenFuncionWrapper.cs" />
     <Compile Include="Wrapper\Interfaces\Iuser32dllVolumeFunctionWrapper.cs" />
-    <Compile Include="Wrapper\Interfaces\IwinmmWrapper.cs" />
     <Compile Include="Wrapper\user32DllWrapper.cs" />
-    <Compile Include="Wrapper\winmmWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -228,7 +224,7 @@
     </Antlr4>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
+  <!--<ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
@@ -244,7 +240,9 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
+  </ItemGroup>-->
+  <Import Project="packages\Antlr4.4.5.3\build\Antlr4.props" Condition="Exists('packages\Antlr4.4.5.3\build\Antlr4.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- Folder containing Antlr4BuildTasks.dll -->
   <!-- Path to the ANTLR Tool itself. -->

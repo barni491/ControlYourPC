@@ -14,11 +14,6 @@ namespace ControlYourPC.WindsorInstallers
        Component.For<Iuser32dllCommonWrapper, Iuser32dllVolumeFunctionWrapper, Iuser32dllScreenFuncionWrapper>()
          .ImplementedBy<user32DllWrapper>()
          .LifestyleSingleton());
-
-      container.Register(
-        Component.For<IwinmmWrapper>()
-          .ImplementedBy<winmmWrapper>()
-          .LifestyleSingleton());
     }
   }
 }

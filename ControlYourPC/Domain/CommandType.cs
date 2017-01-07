@@ -6,8 +6,7 @@
 
     VoiceUpAbout,
     VoiceDownAbout,
-    VoiceUpTo,
-    VoiceDownTo,
+    SetVolumeTo,
     Mute,
     Unmute,
 
