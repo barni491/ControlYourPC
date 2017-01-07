@@ -1,5 +1,4 @@
-﻿using System;
-using Castle.Windsor;
+﻿using Castle.Windsor;
 using Castle.Windsor.Installer;
 using ControlYourPC.Services.Interfaces;
 
@@ -7,9 +6,9 @@ namespace ControlYourPC
 {
   public class App
   {
-    private IMainService _mainService;
+    private readonly IMainService _mainService;
 
-    public void Start()
+    public App()
     {
       var container = new WindsorContainer();
       container.Install(FromAssembly.This());
@@ -20,8 +19,6 @@ namespace ControlYourPC
     public void Main()
     {
       _mainService.Process();
-
-      Console.ReadKey();
     }
   }
 }
