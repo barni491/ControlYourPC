@@ -55,34 +55,27 @@
   <ItemGroup>
     <Reference Include="Antlr4.Runtime">
       <HintPath>packages\Antlr4.Runtime.4.5.3\lib\net40-client\Antlr4.Runtime.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Antlr4BuildTasks.net40">
       <HintPath>packages\Antlr4.4.5.3\build\Antlr4BuildTasks.net40.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto">
       <HintPath>packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>packages\Castle.Core.3.3.3\lib\net40-client\Castle.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Windsor">
       <HintPath>packages\Castle.Windsor.3.3.0\lib\net40\Castle.Windsor.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Gma.System.MouseKeyHook, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MouseKeyHook.5.4.0\lib\net40\Gma.System.MouseKeyHook.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Google.Apis">
       <HintPath>packages\Google.Apis.1.10.0\lib\net40\Google.Apis.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Google.Apis.Auth">
       <HintPath>packages\Google.Apis.Auth.1.10.0\lib\net40\Google.Apis.Auth.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Google.Apis.Auth.PlatformServices">
       <HintPath>packages\Google.Apis.Auth.1.10.0\lib\net40\Google.Apis.Auth.PlatformServices.dll</HintPath>
@@ -90,15 +83,12 @@
     </Reference>
     <Reference Include="Google.Apis.CloudSpeechAPI.v1beta1">
       <HintPath>packages\Google.Apis.CloudSpeechAPI.v1beta1.1.16.0.607\lib\portable-net40+sl50+netcore45+wpa81+wp8\Google.Apis.CloudSpeechAPI.v1beta1.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Google.Apis.Core">
       <HintPath>packages\Google.Apis.Core.1.10.0\lib\portable-net40+sl50+win+wpa81+wp80\Google.Apis.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Google.Apis.PlatformServices">
       <HintPath>packages\Google.Apis.1.10.0\lib\net40\Google.Apis.PlatformServices.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="log4net">
       <HintPath>packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
@@ -118,20 +108,25 @@
     </Reference>
     <Reference Include="NAudio">
       <HintPath>packages\NAudio.1.8.0\lib\net35\NAudio.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+	<Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+	<Reference Include="System.Net" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO">
       <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
-      <Private>True</Private>
+	  <Private>True</Private>
     </Reference>
-    <Reference Include="System.Net" />
     <Reference Include="System.Net.Http">
       <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.dll</HintPath>
       <Private>True</Private>
@@ -156,15 +151,8 @@
       <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="Zlib.Portable">
       <HintPath>packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -179,12 +167,12 @@
     <Compile Include="Domain\CommandType.cs" />
     <Compile Include="Domain\Program.cs" />
     <Compile Include="Domain\ProgramList.cs" />
-    <Compile Include="obj\Debug\Combined1BaseListener.cs" />
+    <!-- <Compile Include="obj\Debug\Combined1BaseListener.cs" />
     <Compile Include="obj\Debug\Combined1BaseVisitor.cs" />
     <Compile Include="obj\Debug\Combined1Lexer.cs" />
     <Compile Include="obj\Debug\Combined1Listener.cs" />
     <Compile Include="obj\Debug\Combined1Parser.cs" />
-    <Compile Include="obj\Debug\Combined1Visitor.cs" />
+    <Compile Include="obj\Debug\Combined1Visitor.cs" /> -->
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CommonService.cs" />
