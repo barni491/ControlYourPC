@@ -63,6 +63,18 @@ namespace ControlYourPC.Services
             
         }
 
+        public override string VisitPrintScreen([NotNull] Combined1Parser.PrintScreenContext context)
+        {
+            return "TakePrintScreen";
+        }
+
+        public override string VisitUnmute([NotNull] Combined1Parser.UnmuteContext context)
+        {
+            _voiceService.Unmute();
+            return "unmute";
+
+        }
+
         public override string VisitVoiceDownAbout([NotNull] Combined1Parser.VoiceDownAboutContext context)
         {
             Combined1Parser.ValueContext contextValue = context.value();
