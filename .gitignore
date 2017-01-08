@@ -24,7 +24,8 @@ obj/
 [Oo]bj
 [Rr]elease*/
 PublishProfiles/
-
+[Bb]in
+[Dd]ebug*/
 
 #Project files
 [Bb]uild/
