@@ -11,7 +11,7 @@ namespace ControlYourPC.Services
 {
   class SpeechRecognationService : ISpeechRecognationService
   {
-    private const string AudioFilePath = "przycisz_SOX.flac";
+    private const string AudioFilePath = "Nagranie.flac";
 
     public string RecognizeCommand()
     {

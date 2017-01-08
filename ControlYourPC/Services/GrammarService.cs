@@ -8,10 +8,12 @@ namespace ControlYourPC.Services
   class GrammarService : IGrammarService
   {
     private readonly IVisitor _visitor;
+    private readonly ICommandConverter _commandConverter;
 
-    public GrammarService(IVisitor visitor)
+    public GrammarService(IVisitor visitor, ICommandConverter commandConverter)
     {
       _visitor = visitor;
+      _commandConverter = commandConverter;
     }
 
     public Command AnalizeGrammar(string text)
@@ -24,12 +26,14 @@ namespace ControlYourPC.Services
       Combined1Parser.ProgContext tree = parser.prog();
 
       string stringTree = tree.ToStringTree((Parser) parser);
-      string value = ((Combined1BaseVisitor<string>)_visitor).Visit(tree);
-  
       Console.WriteLine(stringTree);
+     
+      string value = ((Combined1BaseVisitor<string>)_visitor).Visit(tree);
       Console.WriteLine(value);
+      
+      Command command = _commandConverter.Convert(value);
 
-      return new Command();
+      return command;
     }
   }
 }

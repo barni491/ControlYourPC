@@ -64,6 +64,11 @@ namespace ControlYourPC.WindsorInstallers
         Component.For<IXmlReader>()
           .ImplementedBy<XmlReader>()
           .LifestyleSingleton());
+
+      container.Register(
+        Component.For<ICommandConverter>()
+          .ImplementedBy<CommandConverter>()
+          .LifestyleSingleton());
     }
   }
 }

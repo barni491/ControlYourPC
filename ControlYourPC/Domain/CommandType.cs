@@ -15,6 +15,6 @@
     RunExternalProcess,
 
     TurnOnCapsLock,
-    TurnOfCapsLock
+    TurnOffCapsLock
   }
 }
