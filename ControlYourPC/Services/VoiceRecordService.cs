@@ -26,7 +26,7 @@ namespace ControlYourPC.Services
 
     public void RecordCommand()
     {
-      PlayStartSound();
+  //    PlayStartSound();
       _waveInEvent.StartRecording();
 
       System.Threading.Thread.Sleep(5000);

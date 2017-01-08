@@ -4,23 +4,28 @@ using ControlYourPC.Services.Interfaces;
 
 namespace ControlYourPC.Services
 {
-  public class CommandConverter : ICommandConverter
-  {
-    public Command Convert(string source)
+    public class CommandConverter : ICommandConverter
     {
-      string[] strings = source.Split(' ');
+        public Command Convert(string source)
+        {
 
-      var command = new Command
-      {
-        CommandType = (CommandType) Enum.Parse(typeof (CommandType), strings[0]),
-      };
+            if (source == null)
+            {
+                return null;
+            }
+            string[] strings = source.Split(' ');
 
-      if (strings.Length == 2)
-      {
-        command.Value = strings[1];
-      }
+            var command = new Command
+            {
+                CommandType = (CommandType)Enum.Parse(typeof(CommandType), strings[0]),
+            };
 
-      return command;
+            if (strings.Length == 2)
+            {
+                command.Value = strings[1];
+            }
+
+            return command;
+        }
     }
-  }
 }

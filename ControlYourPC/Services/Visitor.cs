@@ -79,15 +79,11 @@ namespace ControlYourPC.Services
 
     public override string VisitMute([NotNull] Combined1Parser.MuteContext context)
     {
-      _voiceService.Mute();
-
       return $"{CommandStrings.Mute}";
     }
 
     public override string VisitUnmute([NotNull] Combined1Parser.UnmuteContext context)
     {
-      _voiceService.Unmute();
-
       return $"{CommandStrings.Unmute}";
     }
     
