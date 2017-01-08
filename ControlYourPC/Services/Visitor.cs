@@ -18,15 +18,23 @@ namespace ControlYourPC.Services
         {
             Combined1Parser.ValueContext valueContext = context.value();
             int? value = GetValueFromContext(valueContext);
-
+            _voiceService.SetVolumeTo(value.ToString());
             return $"VoiceSetTo {value}";
            
+        }
+
+
+        public override string VisitRunExternalProcess([NotNull] Combined1Parser.RunExternalProcessContext context)
+        {
+            string processName = context.runCommand().@string().GetText();
+            return $"RunExternalProcess {processName}";
         }
 
         public override string VisitVoiceUpTo([NotNull] Combined1Parser.VoiceUpToContext context)
         {
             Combined1Parser.ValueContext valueContext = context.value();
             int? value = GetValueFromContext(valueContext);
+            _voiceService.SetVolumeTo(value.ToString());
             return $"VoiceUpTo {value}";
         }
 
@@ -34,6 +42,7 @@ namespace ControlYourPC.Services
         {
             Combined1Parser.ValueContext valueContext = context.value();
             int? value = GetValueFromContext(valueContext);
+
             return $"VoiceDownTo {value}";
            
         }
@@ -48,7 +57,7 @@ namespace ControlYourPC.Services
                 value = 2;
             }
 
-            _voiceService.VolumeUp(value.Value);
+            _voiceService.VolumeUpAbout(value.ToString());
 
             Console.Out.WriteLine($"Podgłaszanie o [{value}].");
             Console.Out.Write(context.ToStringTree());
@@ -80,12 +89,12 @@ namespace ControlYourPC.Services
             Combined1Parser.ValueContext contextValue = context.value();
 
             int? value = GetValueFromContext(contextValue);
-            if (!value.HasValue)
+            
             {
                 value = 2;
             }
 
-            _voiceService.VolumeDown(value.Value);
+            _voiceService.VolumeDownAbout(value.ToString());
 
             Console.Out.WriteLine($"Przyciszanie o [{value}].");
             Console.Out.Write(context.ToStringTree());

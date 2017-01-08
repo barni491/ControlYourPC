@@ -9,7 +9,8 @@ expr : ((COMMAND? voiceUp ABOUT_COMMAND value?) |(UP_COMMAND VOICE_NOUN ABOUT_CO
 		| (COMMAND? VOICE_NOUN TO_COMMAND? value ) #VoiceSetTo		
 		|( VOICE_MUTE_COMMAND | ( (TURN_OFF_COMMAND | VOICE_MUTE_COMMAND)  VOICE_NOUN))  #Mute 
 		|( TURN_ON_COMMAND  VOICE_NOUN)  #Unmute
-		| printScreenExpr #PrintScreen ;
+		| printScreenExpr #PrintScreen 
+		| runCommand #RunExternalProcess;
 
 
 printScreenExpr : (COMMAND? PRINTSCREEN_NOUN);
@@ -23,16 +24,22 @@ voiceDown: VOICE_DOWN_COMMAND;
 percent:PERCENT;
 val : INT;
 
+runCommand : (TURN_ON_COMMAND | RUN_COMMAND) string ;
+
 /*
- * Lexer Rules`
+ * Lexer Rules
  */
 
+
+
+string : WORD+; 
 
 INT : [0-9]+;
 COMMAND : 'zrób' | 'ustaw'; 
 UP_COMMAND : 'zwiêksz';
 DOWN_COMMAND : 'zmniejsz';
 ABOUT_COMMAND: 'o';
+RUN_COMMAND :  'uruchom' | 'odpal' | 'otwórz' | 'wystartuj';
 TO_COMMAND: 'do' | 'na';
 TURN_OFF_COMMAND : 'wy³¹cz' ;
 TURN_ON_COMMANE : 'w³¹cz';
@@ -43,5 +50,5 @@ VOICE_NOUN : 'g³os'| 'g³oœniki'|'g³oœnoœæ';
 PERCENT : '%';
 
 PRINTSCREEN_NOUN : 'zrzut' | 'zrzut ekranu';
-
+WORD 	: ('a'..'z' |  'A'..'Z')+ ;
 WS :   (' ' | '\r' | '\n') -> channel(HIDDEN);

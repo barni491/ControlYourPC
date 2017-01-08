@@ -1,35 +1,60 @@
-﻿using ControlYourPC.Services.Interfaces;
+﻿using System;
+using ControlYourPC.Services.Interfaces;
 using ControlYourPC.Wrapper.Interfaces;
+using NAudio.CoreAudioApi;
 
 namespace ControlYourPC.Services
 {
   public class VoiceService : IVoiceService
   {
     private readonly Iuser32dllVolumeFunctionWrapper _volumeFunctionWrapper;
-    private readonly IwinmmWrapper _winmmWrapper;
 
-    public VoiceService(Iuser32dllVolumeFunctionWrapper volumeFunctionWrapper, IwinmmWrapper winmmWrapper)
+    private readonly MMDeviceEnumerator _deviceEnumerator = new MMDeviceEnumerator();
+    private readonly MMDevice _defaultDevice;
+
+    public VoiceService(Iuser32dllVolumeFunctionWrapper volumeFunctionWrapper)
     {
       _volumeFunctionWrapper = volumeFunctionWrapper;
-      _winmmWrapper = winmmWrapper;
+
+      _defaultDevice = _deviceEnumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
+    }
+    public void VolumeUpAbout(string value)
+    {
+      float? valueFloat = ConvertToFloat(value);
+      if (!valueFloat.HasValue)
+      {
+        return;
+      }
+
+      float currentVolume = GetVolume();
+      float newVolume = currentVolume + valueFloat.Value;
+
+      SetVolume(newVolume);
     }
 
-    public void VolumeUp(int value)
+    public void VolumeDownAbout(string value)
     {
-      int repetitionCount = value / 2;
-      for (int i = 0; i < repetitionCount; i++)
+      float? valueFloat = ConvertToFloat(value);
+      if (!valueFloat.HasValue)
       {
-        _volumeFunctionWrapper.PressVolumeUpKey();
+        return;
       }
+
+      float currentVolume = GetVolume();
+      float newVolume = currentVolume - valueFloat.Value;
+
+      SetVolume(newVolume);
     }
 
-    public void VolumeDown(int value)
+    public void SetVolumeTo(string value)
     {
-      int repetitionCount = value / 2;
-      for (int i = 0; i < repetitionCount; i++)
+      float? newVolume = ConvertToFloat(value);
+      if (!newVolume.HasValue)
       {
-        _volumeFunctionWrapper.PressVolumeDownKey();
+        return;
       }
+
+      SetVolume(newVolume.Value);
     }
 
     public void Mute()
@@ -42,9 +67,38 @@ namespace ControlYourPC.Services
       _volumeFunctionWrapper.PressMuteKey();
     }
 
-    public int GetVolume()
+    private static float? ConvertToFloat(string value)
     {
-      return _winmmWrapper.GetVolume();
+      float newVolume;
+      bool success = float.TryParse(value, out newVolume);
+      if (success)
+      {
+        return newVolume / 100;
+      }
+
+      Console.WriteLine($"Given value is invalid! Value:[{value}].");
+      return null;
+    }
+
+    private float GetVolume()
+    {
+      float currentVolume = _defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar;
+
+      return currentVolume;
+    }
+
+    private void SetVolume(float value)
+    {
+      if (value < 0)
+      {
+        value = 0;
+      }
+      if (value > 1)
+      {
+        value = 1;
+      }
+
+      _defaultDevice.AudioEndpointVolume.MasterVolumeLevelScalar = value;
     }
   }
 }

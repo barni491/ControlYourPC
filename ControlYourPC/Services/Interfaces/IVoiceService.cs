@@ -2,14 +2,14 @@
 {
   public interface IVoiceService
   {
-    void VolumeUp(int value);
+    void VolumeUpAbout(string value);
 
-    void VolumeDown(int value);
+    void VolumeDownAbout(string value);
+
+    void SetVolumeTo(string value);
 
     void Mute();
 
     void Unmute();
-
-    int GetVolume();
   }
 }
