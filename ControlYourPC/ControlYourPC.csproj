@@ -195,18 +195,18 @@
     <Compile Include="Services\CommonService.cs" />
     <Compile Include="Services\ExternalProcessManager.cs" />
     <Compile Include="Services\GrammarService.cs" />
-    <Compile Include="bin\Interfaces\ICommandConverter.cs" />
-    <Compile Include="bin\Interfaces\ICommonService.cs" />
-    <Compile Include="bin\Interfaces\IExternalProcessManager.cs" />
-    <Compile Include="bin\Interfaces\IGrammarService.cs" />
-    <Compile Include="bin\Interfaces\IMainService.cs" />
-    <Compile Include="bin\Interfaces\IVisitor.cs" />
-    <Compile Include="bin\Interfaces\IXmlReader.cs" />
+    <Compile Include="Interfaces\ICommandConverter.cs" />
+    <Compile Include="Interfaces\ICommonService.cs" />
+    <Compile Include="Interfaces\IExternalProcessManager.cs" />
+    <Compile Include="Interfaces\IGrammarService.cs" />
+    <Compile Include="Interfaces\IMainService.cs" />
+    <Compile Include="Interfaces\IVisitor.cs" />
+    <Compile Include="Interfaces\IXmlReader.cs" />
     <Compile Include="Services\MainService.cs" />
-    <Compile Include="bin\Interfaces\IScreenService.cs" />
-    <Compile Include="bin\Interfaces\ISpeechRecognationService.cs" />
-    <Compile Include="bin\Interfaces\IVoiceRecordService.cs" />
-    <Compile Include="bin\Interfaces\IVoiceService.cs" />
+    <Compile Include="Interfaces\IScreenService.cs" />
+    <Compile Include="Interfaces\ISpeechRecognationService.cs" />
+    <Compile Include="Interfaces\IVoiceRecordService.cs" />
+    <Compile Include="Interfaces\IVoiceService.cs" />
     <Compile Include="Services\ScreenService.cs" />
     <Compile Include="Services\SpeechRecognationService.cs" />
     <Compile Include="Services\VoiceRecordService.cs" />
@@ -229,6 +229,9 @@
       <Visitor>True</Visitor>
     </Antlr4>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
   </ItemGroup>
   <!--<ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
