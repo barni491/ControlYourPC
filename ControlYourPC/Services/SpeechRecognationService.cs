@@ -58,11 +58,11 @@ namespace ControlYourPC.Services
         {
           Encoding = "FLAC",
           SampleRate = 16000,
-          LanguageCode = "pl-PL"
-        /*  SpeechContext = new SpeechContext
+          LanguageCode = "pl-PL",
+         SpeechContext = new SpeechContext
           {
-            Phrases = new List<string> {"przycisz","głośniej","o"}
-          }*/
+            Phrases = new List<string> {"przycisz","głośniej"}
+          }
         },
         Audio = new RecognitionAudio
         {

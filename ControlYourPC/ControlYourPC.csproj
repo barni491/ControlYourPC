@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1366F172-F9C9-46CE-96FD-56EF854AC7FB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ControlYourPC</RootNamespace>
     <AssemblyName>ControlYourPC</AssemblyName>
@@ -195,18 +195,18 @@
     <Compile Include="Services\CommonService.cs" />
     <Compile Include="Services\ExternalProcessManager.cs" />
     <Compile Include="Services\GrammarService.cs" />
-    <Compile Include="Services\Interfaces\ICommandConverter.cs" />
-    <Compile Include="Services\Interfaces\ICommonService.cs" />
-    <Compile Include="Services\Interfaces\IExternalProcessManager.cs" />
-    <Compile Include="Services\Interfaces\IGrammarService.cs" />
-    <Compile Include="Services\Interfaces\IMainService.cs" />
-    <Compile Include="Services\Interfaces\IVisitor.cs" />
-    <Compile Include="Services\Interfaces\IXmlReader.cs" />
+    <Compile Include="bin\Interfaces\ICommandConverter.cs" />
+    <Compile Include="bin\Interfaces\ICommonService.cs" />
+    <Compile Include="bin\Interfaces\IExternalProcessManager.cs" />
+    <Compile Include="bin\Interfaces\IGrammarService.cs" />
+    <Compile Include="bin\Interfaces\IMainService.cs" />
+    <Compile Include="bin\Interfaces\IVisitor.cs" />
+    <Compile Include="bin\Interfaces\IXmlReader.cs" />
     <Compile Include="Services\MainService.cs" />
-    <Compile Include="Services\Interfaces\IScreenService.cs" />
-    <Compile Include="Services\Interfaces\ISpeechRecognationService.cs" />
-    <Compile Include="Services\Interfaces\IVoiceRecordService.cs" />
-    <Compile Include="Services\Interfaces\IVoiceService.cs" />
+    <Compile Include="bin\Interfaces\IScreenService.cs" />
+    <Compile Include="bin\Interfaces\ISpeechRecognationService.cs" />
+    <Compile Include="bin\Interfaces\IVoiceRecordService.cs" />
+    <Compile Include="bin\Interfaces\IVoiceService.cs" />
     <Compile Include="Services\ScreenService.cs" />
     <Compile Include="Services\SpeechRecognationService.cs" />
     <Compile Include="Services\VoiceRecordService.cs" />

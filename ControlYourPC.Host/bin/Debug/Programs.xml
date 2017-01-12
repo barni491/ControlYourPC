@@ -2,12 +2,12 @@
 <ProgramList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Programs>
     <Program>
-      <Name>word</Name>
+      <Name>edytor</Name>
       <Path>C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</Path>
     </Program>
     <Program>
-      <Name>notepad</Name>
-      <Path>C:\Program Files (x86)\Notepad++\notepad++.exe</Path>
+      <Name>notatnik</Name>
+      <Path>C:\Windows\System32\notepad.exe</Path>
     </Program>
   </Programs>
 </ProgramList>

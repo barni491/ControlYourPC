@@ -29,7 +29,7 @@ namespace ControlYourPC.Services
       Console.WriteLine(stringTree);
      
       string value = ((Combined1BaseVisitor<string>)_visitor).Visit(tree);
-      Console.WriteLine(value);
+      //Console.WriteLine(value);
       
       Command command = _commandConverter.Convert(value);
 
